@@ -1,0 +1,14 @@
+<h1>Administration</h1>
+<h2>Liste des utilisateurs</h2>
+<table class="table">
+	<tr>
+		<th>#</th>
+		<th>Nom</th>
+		<th>Admin</th>
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+		<td><span class="label label-success" ng-if="user.admin">Administrateur</span></td>
+	</tr>
+</table>

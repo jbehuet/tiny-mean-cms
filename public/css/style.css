@@ -1,0 +1,73 @@
+body{
+    padding-top: 70px;
+}
+
+.navbar-border{
+	border-bottom: 3px solid #F0DB4F;
+}
+
+.navbar-header img{
+	transition: 0.4s;
+}
+
+.navbar-header img:hover{
+	transform: rotate(360deg);
+}  
+
+.sub-login-form{
+	text-align: center;
+}
+
+
+/* ----------------- *\
+	  BS CALLOUT 
+\* ----------------- */
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* SUCCESS */
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+
+/* INFO */
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+/* WARNING */
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+
+/* DANGER */
+.bs-callout-danger {
+    border-left-color: #ce4844;
+}
+
+.bs-callout-danger h4 {
+    color: #ce4844;
+}
