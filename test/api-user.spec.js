@@ -7,7 +7,7 @@ describe('API USER', function(){
     var administrator;
     var token;
     
-    it('should be create administrator', function(done){
+    it('should create an administrator', function(done){
         request(app)
             .post('/api/users')
             .send({
@@ -26,7 +26,7 @@ describe('API USER', function(){
     });
     
     // /!\ Connexion obligatoire afin d'avoir le jeton d'authentification pour les autres requetes /!\
-    it('should be connect with administrator to get token AUTH', function(done){
+    it('should connect to the administrator to get token AUTH', function(done){
         request(app)
             .post('/api/login/')
             .send({
@@ -43,7 +43,7 @@ describe('API USER', function(){
             });
     });
     
-    it('should be find administrator by id', function(done){
+    it('should find an administrator by id', function(done){
         request(app)
             .get('/api/users/' + administrator._id)
             .set('Authorization', token)
@@ -56,7 +56,7 @@ describe('API USER', function(){
             });
     });
     
-    it('should be update administrator name', function(done){
+    it('should update an administrator\'s name', function(done){
         request(app)
             .put('/api/users/' + administrator._id)
             .set('Authorization', token)
@@ -72,7 +72,7 @@ describe('API USER', function(){
             });
     });
     
-    it('should be delete administrator', function(done){
+    it('should delete an administrator', function(done){
         request(app)
             .delete('/api/users/' + administrator._id)
             .set('Authorization', token)
