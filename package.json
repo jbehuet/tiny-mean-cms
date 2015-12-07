@@ -18,8 +18,7 @@
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "swig": "^1.4.2"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "supertest": "^1.1.0"
