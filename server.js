@@ -8,7 +8,6 @@ var morgan			= require('morgan');
 var bodyParser		= require('body-parser');
 var methodOverride	= require('method-override');
 var passport		= require('passport');
-var swig            = require('swig');
 
 // Mongoose ====================================================================
 require('./config/database');
