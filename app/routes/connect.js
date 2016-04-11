@@ -2,32 +2,18 @@
 	 						ROUTES CONNECT
 \* ------------------------------------------------------------------------- */
 
-var jwt = require('jsonwebtoken');
 var User = require('../models/user.js');
+var Auth = require('../middlewares/authorization.js');
 
-module.exports 	= function(app, passport) {
+module.exports 	= function(app) {
 
-	app.get('/api/loggedin', function(req, res) {
-	  res.send(req.isAuthenticated() ? req.user : '0');
+	app.get('/api/loggedin', Auth.user.hasAuthorization, function(req, res, next) {
+        res.sendStatus(200);
 	});
 
-	app.post('/api/login', passport.authenticate('local'), function(req, res, next){
-        //Generate token
-        req.token = jwt.sign({
-            id: req.user._id,
-        }, 'tokenSecret', {
-            expiresIn: 120
-        });
-      next();
-    }, function(req, res) {
-        res.json({
-            user: req.user,
-            token: req.token
-          });
-	});
+	app.post('/api/login', User.connect);
 
 	app.post('/api/logout', function(req, res){
-	  req.logOut();
 	  res.sendStatus(200);
 	});
 }

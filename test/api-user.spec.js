@@ -67,7 +67,7 @@ describe('API USER', function(){
                 if (err)
                     throw err;
             
-                assert.equal(res.body.name, administrator.name);
+                assert.equal(res.body.password, 'admin');
                 done();
             });
     });

@@ -1,4 +1,4 @@
-function config($routeProvider) {
+function config($routeProvider, $httpProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -19,7 +19,6 @@ function config($routeProvider) {
             templateUrl: 'views/admin.html',
             controller: 'adminController',
             resolve: {
-                administrator: checkIsAdmin,
                 connected: checkIsConnected
             }
         })
@@ -29,44 +28,47 @@ function config($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
+    
+    $httpProvider.interceptors.push(function ($q, $location, $rootScope) {
+       return {
+           'request': function (config) {
+               config.headers = config.headers || {};
+               if ($rootScope.token) {
+                   config.headers.authorization = $rootScope.token;
+               }
+               return config;
+           },
+           'responseError': function (response) {
+               if (response.status === 401 || response.status === 403) {
+                   $location.path('/');
+               }
+               return $q.reject(response);
+           }
+       };
+    });
 }
 
 function checkIsConnected($q, $http, $rootScope, $location) {
     var deferred = $q.defer();
 
-    $http.get('/api/loggedin').success(function (user) {
+    $http.get('/api/loggedin').success(function () {
         // Authenticated 
-        if (user !== '0') {
-            $rootScope.user = user;
-            deferred.resolve();
-        } else {
-            // Not Authenticated 
-            deferred.reject();
-            $location.url('/login');
-        }
+        deferred.resolve();
+    }).error(function () {
+        // Not Authenticated 
+        deferred.reject();
+        $location.url('/login');
     });
 
     return deferred.promise;
 };
 
 
-function checkIsAdmin($q, $rootScope, $location) {
-    var deferred = $q.defer();
-
-    if ($rootScope.user && $rootScope.user.admin)
-        deferred.resolve();
-    else {
-        deferred.reject();
-        $location.url('/');
-    }
-
-    return deferred.promise;
-}
-
 function run($rootScope, $location, connectService) {
     $rootScope.loginMessage = {};
     $rootScope.loginMessage.title = '';
     $rootScope.loginMessage.message = '';
+
     // Watch path
     var path = function () {
         return $location.path();
@@ -77,13 +79,14 @@ function run($rootScope, $location, connectService) {
 
     // Logout
     $rootScope.logout = function () {
-        $rootScope.user = null;
+        $rootScope.token = null;
         $rootScope.loginMessage.title = '';
         $rootScope.loginMessage.message = '';
         connectService.disconnect().then(function () {
             $location.url('/login');
         })
     }
+
 }
 
 function checkPassword() {
@@ -100,6 +103,8 @@ function checkPassword() {
         }
     }
 }
+
+
 
 angular.module('app', ['ngRoute'])
     .config(config)

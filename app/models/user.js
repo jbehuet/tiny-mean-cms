@@ -1,18 +1,31 @@
+var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  password: String
+  password: String,
+  isAdmin : { type: Boolean, default: false}
 });
 
 var User = {
     model: mongoose.model('User', userSchema),
     
-    find: function(name, password, callback) {
-        User.model.findOne({
-            name: name,
-            password: password
-		}, {password: 0}, callback);
+    connect: function(req, res) {
+        User.model.findOne(req.body, {password: 0}, function(err, user){
+            if(err || !user)
+                res.sendStatus(403);
+            else{
+                var token = jwt.sign(user, 'tokenSecret', {
+                  expiresInMinutes: 1440 // expires in 24 hours
+                });
+
+                // return the information including token as JSON
+                res.json({
+                  success: true,
+                  token: token
+                });
+            }
+        });
 	},
     
     findAll: function(req, res) {
@@ -42,7 +55,8 @@ var User = {
 	},
 
 	update: function(req, res) {
-		User.model.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
+		User.model.update({_id: req.params.id}, req.body, function(err, user) {
+            console.log(user);
             if (err)
                 res.status(500).send(err.message);
             res.json(user);

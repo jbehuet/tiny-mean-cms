@@ -7,8 +7,8 @@
 		<th>Admin</th>
 	</tr>
 	<tr ng-repeat="user in users">
-		<td>{{user.id}}</td>
+		<td>{{user._id}}</td>
 		<td>{{user.name}}</td>
-		<td><span class="label label-success" ng-if="user.admin">Administrateur</span></td>
+		<td><span class="label label-success" ng-if="user.isAdmin">Administrateur</span></td>
 	</tr>
 </table>

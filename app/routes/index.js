@@ -2,7 +2,7 @@
 	 							ROUTES
 \* ------------------------------------------------------------------------- */
 
-module.exports 	= function(app, passport) {
+module.exports 	= function(app) {
 
 	'use strict';
   	var fs   = require('fs');
@@ -28,7 +28,7 @@ module.exports 	= function(app, passport) {
 		// do not require index.js (this file)
 		if (controller !== 'index') {
 		  // require the controller
-		  require('./' + controller)(app, passport);
+		  require('./' + controller)(app);
 		}
 	}
 }

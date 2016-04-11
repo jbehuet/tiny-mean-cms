@@ -7,14 +7,9 @@ var port			= process.env.PORT || 8000;					// set the port
 var morgan			= require('morgan');
 var bodyParser		= require('body-parser');
 var methodOverride	= require('method-override');
-var passport		= require('passport');
-var swig            = require('swig');
 
 // Mongoose ====================================================================
 require('./config/database');
-
-// Passport ====================================================================
-require('./config/passport')(passport);
 
 // Express =====================================================================
 
@@ -26,8 +21,6 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride('X-HTTP-Method-Override'));				// override with the X-HTTP-Method-Override header in the request
 
 app.use(session({ secret: 'sampleSecretSession', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Cross Domain
 app.use(function(request, response, next) {
@@ -42,7 +35,7 @@ app.use(function(request, response, next) {
 var server = http.Server(app);
 
 // Routes ======================================================================
-require('./app/routes')(app, passport);
+require('./app/routes')(app);
 
 process.on('SIGINT', function() {
   console.log("\nStopping...");
