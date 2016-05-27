@@ -21,11 +21,10 @@ exports.user = {
     isAdministrator: function (req, res, next) {
          if (req.headers.authorization) {
             jwt.verify(req.headers.authorization, 'tokenSecret', function (err, decoded) {
-                console.log('isAdmin: ' + decoded.isAdmin)
-                if (err || !decoded.isAdmin)
-                    return res.sendStatus(403);
+                if (decoded._doc && decoded._doc.isAdmin || decoded.isAdmin || !err)
+                  next()
                 else
-                    next();
+                    return res.sendStatus(403);
             });
         } else {
             return res.sendStatus(401);
