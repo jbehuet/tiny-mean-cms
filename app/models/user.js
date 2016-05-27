@@ -22,6 +22,7 @@ var User = {
                 // return the information including token as JSON
                 res.json({
                   success: true,
+                  user: user,
                   token: token
                 });
             }

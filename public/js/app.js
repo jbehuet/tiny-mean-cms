@@ -80,6 +80,7 @@ function run($rootScope, $location, connectService) {
     // Logout
     $rootScope.logout = function () {
         $rootScope.token = null;
+        $rootScope.user = null;
         $rootScope.loginMessage.title = '';
         $rootScope.loginMessage.message = '';
         connectService.disconnect().then(function () {
