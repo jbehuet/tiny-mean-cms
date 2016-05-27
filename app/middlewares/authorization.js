@@ -21,7 +21,7 @@ exports.user = {
     isAdministrator: function (req, res, next) {
          if (req.headers.authorization) {
             jwt.verify(req.headers.authorization, 'tokenSecret', function (err, decoded) {
-                console.log(decoded)
+                console.log('isAdmin: ' + decoded.isAdmin)
                 if (err || !decoded.isAdmin)
                     return res.sendStatus(403);
                 else
