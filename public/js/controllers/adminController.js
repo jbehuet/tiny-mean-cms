@@ -1,5 +1,5 @@
-function adminController($scope , $http){
-	$http.get('/api/users').then(function(res){
+function adminController($scope , userService){
+	userService.getAll().then(function(res){
 		$scope.users = res.data;
 	})
 }
