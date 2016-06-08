@@ -1,5 +1,5 @@
 <div class="col-md-4 col-md-offset-4">
-  <div class="bs-callout bs-callout-danger" ng-show="(vm.loginMessage.title != '')">
+  <div class="bs-callout bs-callout-danger" ng-if="(vm.loginMessage.title && vm.loginMessage.title != '')">
   <h4>{{vm.loginMessage.title}}</h4>
   <p>{{vm.loginMessage.message}}</p>
   </div>

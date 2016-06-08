@@ -2,26 +2,26 @@ const config = ($routeProvider, $httpProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
-            controller: 'mainController',
-						controllerAs: 'vm'
+            controller: 'MainController',
+						controllerAs: 'vm',
             resolve: {
                 connected: checkIsConnected
             }
         })
         .when('/login', {
             templateUrl: 'views/connect.html',
-            controller: 'connectController',
+            controller: 'ConnectController',
 						controllerAs: 'vm'
         })
         .when('/signup', {
             templateUrl: 'views/signup.html',
-            controller: 'signupController',
+            controller: 'SignupController',
 						controllerAs: 'vm'
         })
         .when('/admin', {
             templateUrl: 'views/admin.html',
-            controller: 'adminController',
-						controllerAs: 'vm'
+            controller: 'AdminController',
+						controllerAs: 'vm',
             resolve: {
                 connected: checkIsConnected
             }
@@ -66,11 +66,7 @@ const checkIsConnected = ($q, $http, $rootScope, $location) => {
 }
 
 
-const run = ($rootScope, $location, connectService) => {
-    $rootScope.loginMessage = {}
-    $rootScope.loginMessage.title = ''
-    $rootScope.loginMessage.message = ''
-
+const run = ($rootScope, $location, ConnectService) => {
     // Watch path
     let path = () => {
         return $location.path()
@@ -83,9 +79,7 @@ const run = ($rootScope, $location, connectService) => {
     $rootScope.logout = () => {
         $rootScope.token = null
         $rootScope.user = null
-        $rootScope.loginMessage.title = ''
-        $rootScope.loginMessage.message = ''
-        connectService.disconnect().then(() =>{
+        ConnectService.disconnect().then(() =>{
             $location.url('/login')
         })
     }
@@ -109,10 +103,10 @@ const checkPassword = () => {
 angular.module('app', ['ngRoute'])
     .config(config)
     .directive('checkPassword', checkPassword)
-    .controller('connectController', connectController)
-    .controller('signupController', signupController)
-    .controller('mainController', mainController)
-    .controller('adminController', adminController)
+    .controller('ConnectController', ConnectController)
+    .controller('SignupController', SignupController)
+    .controller('MainController', MainController)
+    .controller('AdminController', AdminController)
     .service('ConnectService', ConnectService)
     .service('UserService', UserService)
     .run(run);

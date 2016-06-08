@@ -5,11 +5,11 @@ class UserService {
     }
 
     getAll() {
-        return $http.get('/api/users')
+        return this.$http.get('/api/users')
     }
 
     create(user) {
-        return $http.post('/api/users', user)
+        return this.$http.post('/api/users', user)
     }
 
 }
