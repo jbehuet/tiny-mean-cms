@@ -1,5 +1,7 @@
-function mainController($scope, $rootScope, $http) {
-	$scope.title = "Welcome !";
+class MainController {
 
-	
+    constructor() {
+        this.title = "Welcome !";
+    }
+
 }

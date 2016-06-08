@@ -1,13 +1,19 @@
-function connectController($scope, $rootScope, $location, connectService){
+class ConnectController {
 
-	$scope.connect = function(){
-		connectService.connect($scope.user).then(function(res){
-			$rootScope.token = res.data.token;
-      $rootScope.user = res.data.user;
-			$location.path('/');
-		}).catch(function(){
-			$rootScope.loginMessage.title = "Connexion error";
-			$rootScope.loginMessage.message = "Error login or password";
-		});
-	}
+    constructor($rootScope, $location, ConnectService) {
+        this.$rootScope = $rootScope;
+        this.$location = $location;
+        this.ConnectService = ConnectService;
+    }
+
+    connect() {
+        this.ConnectService.connect(this.$scope.user).then((res) => {
+            this.$rootScope.token = res.data.token;
+            this.$rootScope.user = res.data.user;
+            this.$location.path('/');
+        }).catch(() => {
+            this.$rootScope.loginMessage.title = "Connexion error";
+            this.$rootScope.loginMessage.message = "Error login or password";
+        });
+    }
 }

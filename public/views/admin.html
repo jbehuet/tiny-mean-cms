@@ -6,7 +6,7 @@
 		<th>Nom</th>
 		<th>Admin</th>
 	</tr>
-	<tr ng-repeat="user in users">
+	<tr ng-repeat="user in vm.users">
 		<td>{{user._id}}</td>
 		<td>{{user.name}}</td>
 		<td><span class="label label-success" ng-if="user.isAdmin">Administrateur</span></td>

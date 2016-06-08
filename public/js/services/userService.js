@@ -1,10 +1,15 @@
-function userService($http){
-	return {
-		getAll: function(){
-			return $http.get('/api/users');
-		},
-		create: function(user){
-			return $http.post('/api/users', user);
-		}
-	}
+class UserService {
+
+    constructor($http) {
+			this.$http = $http
+    }
+
+    getAll() {
+        return $http.get('/api/users')
+    }
+
+    create(user) {
+        return $http.post('/api/users', user)
+    }
+
 }

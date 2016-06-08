@@ -1,16 +1,22 @@
-function signupController($scope, $location, $timeout, userService) {
+class SignupController {
 
-    $scope.username = "";
-    $scope.signupMessage = {};
-    $scope.signupMessage.title = "";
-    
-    $scope.signup = function() {
-        userService.create($scope.user).then(function (res) {
-            $scope.username = res.data.username;
-            $timeout(function(){ $location.path('/'); }, 2000);
-        }).catch(function (res) {
-            $scope.signupMessage.title = "Signup error";
-            $scope.signupMessage.message = res.data;
+    constructor($location, $timeout, UserService) {
+        this.$location = $location
+        this.$timeout = $timeout
+        this.username = ""
+        this.signupMessage = {}
+        this.signupMessage.title = ""
+    }
+
+    signup() {
+        this.UserService.create($scope.user).then((res) => {
+            this.username = res.data.username;
+            $timeout(() => {
+                this.$location.path('/');
+            }, 2000);
+        }).catch((res) => {
+            this.signupMessage.title = "Signup error";
+            this.signupMessage.message = res.data;
         });
     }
 }

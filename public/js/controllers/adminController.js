@@ -1,5 +1,9 @@
-function adminController($scope , userService){
-	userService.getAll().then(function(res){
-		$scope.users = res.data;
-	})
+class AdminController {
+	
+    constructor(UserService) {
+        UserService.getAll().then((res) => {
+            this.users = res.data;
+        })
+    }
+
 }
