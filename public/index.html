@@ -10,10 +10,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="vendor/jquery-1.11.3.min.js"></script>
-    <script src="vendor/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- AngularJS -->
     <script src="vendor/angular.min.js"></script>
@@ -31,10 +32,10 @@
 
     </head>
     <body>
-    <header class="navbar navbar-inverse navbar-fixed-top navbar-border" role="navigation">
+    <header class="navbar navbar-default navbar-fixed-top" role="navigation" ng-if="token">
         <div class="container">
             <div class="navbar-header">
-                <a href="#/"><img src="assets/logo.png"></a>
+                <a href="#/"><img src="assets/img/logo.png"></a>
                  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar"
                          aria-controls="bs-navbar" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
