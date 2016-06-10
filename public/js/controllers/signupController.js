@@ -3,15 +3,16 @@ class SignupController {
     constructor($location, $timeout, UserService) {
         this.$location = $location
         this.$timeout = $timeout
+        this.UserService = UserService;
         this.username = ""
         this.signupMessage = {}
         this.signupMessage.title = ""
     }
 
     signup() {
-        this.UserService.create($scope.user).then((res) => {
+        this.UserService.create(this.user).then((res) => {
             this.username = res.data.username;
-            $timeout(() => {
+            this.$timeout(() => {
                 this.$location.path('/');
             }, 2000);
         }).catch((res) => {
