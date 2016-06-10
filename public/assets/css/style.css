@@ -1,20 +1,126 @@
 body {
     padding-top: 70px;
-    background-color: #DADADA;
+}
+
+/* loader */
+
+.ng-cloak.cs-loader {
+    display: block !important;
+}
+
+.cs-loader {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.cs-loader-inner {
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  width: 100%;
+  color: #00b5ad;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.cs-loader-inner label {
+  font-size: 20px;
+  opacity: 0;
+  display:inline-block;
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+}
+
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+  }
+}
+
+.cs-loader-inner label:nth-child(6) {
+  -webkit-animation: lol 3s infinite ease-in-out;
+  animation: lol 3s infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(5) {
+  -webkit-animation: lol 3s 100ms infinite ease-in-out;
+  animation: lol 3s 100ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 3s 200ms infinite ease-in-out;
+  animation: lol 3s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 3s 300ms infinite ease-in-out;
+  animation: lol 3s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 3s 400ms infinite ease-in-out;
+  animation: lol 3s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 3s 500ms infinite ease-in-out;
+  animation: lol 3s 500ms infinite ease-in-out;
 }
 
 /* navbar */
 
 .navbar {
-    background-color: #FFFFFF;
+    background-color: #00b5ad;
     border-bottom: 1px solid #DDDDDD;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
 }
-.navbar-header img {
-    transition: 0.4s;
+.navbar-nav> li> a {
+    color: #FFF !important;
+    line-height: 30px;
 }
-.navbar-header img:hover {
-    transform: rotate(360deg);
+.navbar-nav>.open>a, .navbar-nav> li> a:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.navbar-nav> .selected> a {
+    border-bottom: 2px solid #FFF;
+}
+.nav> li> a> img.circle {
+    border-radius: 50%;
+    height: 30px;
 }
 
 /* login form */
@@ -33,14 +139,19 @@ body {
     line-height: 60px;
     border-radius: 4px;
 }
-
-.frm-buttons{
-  padding: 0px 15px;
-  margin-bottom: 0px;
+.frm-buttons {
+    padding: 0px 15px;
+    margin-bottom: 0px;
 }
 
 /* ui */
 
+.ui.teal.bg {
+    background-color: #00b5ad;
+}
+.ui.teal.text {
+    colo: #00b5ad;
+}
 .ui.teal.header {
     color: #00b5ad !important;
 }
@@ -66,6 +177,7 @@ body {
     border: 1px solid #eee;
     border-left-width: 5px;
     border-radius: 3px;
+    background: #FFF;
 }
 .bs-callout h4 {
     margin-top: 0;
