@@ -4,20 +4,24 @@ class SignupController {
         this.$location = $location
         this.$timeout = $timeout
         this.UserService = UserService;
-        this.username = ""
-        this.signupMessage = {}
-        this.signupMessage.title = ""
     }
 
     signup() {
         this.UserService.create(this.user).then((res) => {
-            this.username = res.data.username;
+            this.username = res.data.username
+            this.signupMessage = {}
+            this.signupMessage.type ="success"
+            this.signupMessage.title ="Account created !"
+            this.signupMessage.message ="Redirecting..."
             this.$timeout(() => {
-                this.$location.path('/');
+                this.signupMessage = null
+                this.$location.path('/')
             }, 2000);
         }).catch((res) => {
-            this.signupMessage.title = "Signup error";
-            this.signupMessage.message = res.data;
+            this.signupMessage = {}
+            this.signupMessage.type ="error"
+            this.signupMessage.title = "Signup error"
+            this.signupMessage.message = res.data
         });
     }
 }

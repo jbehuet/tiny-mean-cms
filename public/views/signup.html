@@ -2,14 +2,7 @@
   <h2 class="ui teal image header text-center">
     Create account
   </h2>
-  <div class="bs-callout bs-callout-danger" ng-show="(vm.signupMessage.title != '')">
-      <h4>{{vm.signupMessage.title}}</h4>
-      <p>{{vm.signupMessage.message}}</p>
-  </div>
-  <div class="bs-callout bs-callout-success" ng-show="(vm.username != '')">
-      <h4>Account created !</h4>
-      <p>Redirecting...</p>
-  </div>
+  <alert message="vm.signupMessage" ng-if="(vm.signupMessage)"></alert>
   <form name="formCreate" class="login-form">
     <div class="form-group">
       <div class="input-group">

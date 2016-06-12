@@ -43,7 +43,7 @@ const config = ($routeProvider, $httpProvider) => {
            },
            responseError(response) {
                if (response.status === 401 || response.status === 403)
-                   $location.path('/')
+                   $location.path('/login')
                return $q.reject(response)
            }
        }
@@ -103,6 +103,7 @@ const checkPassword = () => {
 angular.module('app', ['ngRoute'])
     .config(config)
     .directive('checkPassword', checkPassword)
+    .component('alert', alertComponent)
     .controller('ConnectController', ConnectController)
     .controller('SignupController', SignupController)
     .controller('MainController', MainController)

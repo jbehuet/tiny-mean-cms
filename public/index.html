@@ -18,14 +18,14 @@
 
 <body ng-style="{'background-color': (activetab=='/login' || activetab=='/signup') ? '#DADADA' : '#FFF'}">
     <div class="ng-cloak cs-loader">
-        <div class="cs-loader-inner">
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
-        </div>
+      <div class="cs-loader-inner">
+          <label> ●</label>
+          <label> ●</label>
+          <label> ●</label>
+          <label> ●</label>
+          <label> ●</label>
+          <label> ●</label>
+      </div>
     </div>
 
     <div class="ng-cloak">
@@ -34,22 +34,25 @@
           <ng-view></ng-view>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- AngularJS -->
-    <script src="vendor/angular.min.js"></script>
-    <script src="vendor/angular-route.min.js"></script>
-
-    <script src="js/services/ConnectService.js"></script>
-    <script src="js/services/UserService.js"></script>
-
-    <script src="js/controllers/ConnectController.js"></script>
-    <script src="js/controllers/SignupController.js"></script>
-    <script src="js/controllers/MainController.js"></script>
-    <script src="js/controllers/AdminController.js"></script>
-
-    <script src="js/app.js"></script>
 </body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- AngularJS -->
+<script src="vendor/angular.min.js"></script>
+<script src="vendor/angular-route.min.js"></script>
+
+<script src="js/components/alert/alert.js"></script>
+
+<script src="js/services/ConnectService.js"></script>
+<script src="js/services/UserService.js"></script>
+
+<script src="js/controllers/ConnectController.js"></script>
+<script src="js/controllers/SignupController.js"></script>
+<script src="js/controllers/MainController.js"></script>
+<script src="js/controllers/AdminController.js"></script>
+
+<script src="js/app.js"></script>
+
 </html>
