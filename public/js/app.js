@@ -1,4 +1,20 @@
+const checkIsConnected = ($q, $http, $rootScope, $location) => {
+    let deferred = $q.defer()
+
+    $http.get('/api/loggedin').success(() =>{
+        // Authenticated
+        deferred.resolve()
+    }).error(() => {
+        // Not Authenticated
+        deferred.reject()
+        $location.url('/login')
+    })
+
+    return deferred.promise
+}
+
 const config = ($routeProvider, $httpProvider) => {
+    'use strict';
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -20,8 +36,6 @@ const config = ($routeProvider, $httpProvider) => {
         })
         .when('/admin', {
             templateUrl: 'views/admin.html',
-            controller: 'AdminController',
-						controllerAs: 'vm',
             resolve: {
                 connected: checkIsConnected
             }
@@ -49,22 +63,6 @@ const config = ($routeProvider, $httpProvider) => {
        }
     })
 }
-
-const checkIsConnected = ($q, $http, $rootScope, $location) => {
-    let deferred = $q.defer()
-
-    $http.get('/api/loggedin').success(() =>{
-        // Authenticated
-        deferred.resolve()
-    }).error(() => {
-        // Not Authenticated
-        deferred.reject()
-        $location.url('/login')
-    });
-
-    return deferred.promise
-}
-
 
 const run = ($rootScope, $location, ConnectService) => {
     // Watch path
@@ -104,10 +102,11 @@ angular.module('app', ['ngRoute'])
     .config(config)
     .directive('checkPassword', checkPassword)
     .component('alert', alertComponent)
+    .component('users', usersComponent)
+    .component('user', userComponent)
     .controller('ConnectController', ConnectController)
     .controller('SignupController', SignupController)
     .controller('MainController', MainController)
-    .controller('AdminController', AdminController)
     .service('ConnectService', ConnectService)
     .service('UserService', UserService)
     .run(run);
