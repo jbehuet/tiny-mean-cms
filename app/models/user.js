@@ -25,7 +25,7 @@ var User = {
                 res.sendStatus(403);
             else {
                 var token = jwt.sign(user, 'tokenSecret', {
-                    expiresInMinutes: 1440 // expires in 24 hours
+                    expiresIn: "24h"
                 });
 
                 // return the information including token as JSON
@@ -42,7 +42,10 @@ var User = {
         User.model.find({}, {
             password: 0
         }, function(err, users) {
-            res.json(users);
+            if (err)
+                res.status(500).send(err.message);
+            else
+                res.json(users);
         });
     },
 
@@ -50,7 +53,10 @@ var User = {
         User.model.findById(req.params.id, {
             password: 0
         }, function(err, user) {
-            res.json(user);
+            if (err)
+                res.status(500).send(err.message);
+            else
+                res.json(user);
         });
     },
 
@@ -62,7 +68,6 @@ var User = {
                 else {
                     if (err.code === 11000 || err.code === 11001)
                         err.message = "Username " + req.body.name + " already exist";
-
                     res.status(500).send(err.message);
                 }
             });
@@ -72,10 +77,10 @@ var User = {
         User.model.update({
             _id: req.params.id
         }, req.body, function(err, user) {
-            console.log(user);
             if (err)
                 res.status(500).send(err.message);
-            res.json(user);
+            else
+                res.json(user);
         });
     },
 
@@ -83,7 +88,8 @@ var User = {
         User.model.findByIdAndRemove(req.params.id, function(err) {
             if (err)
                 res.status(500).send(err.message);
-            res.sendStatus(200);
+            else
+                res.sendStatus(200);
         })
     }
 }
