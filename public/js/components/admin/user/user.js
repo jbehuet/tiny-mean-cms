@@ -1,5 +1,5 @@
 let userComponent = {
-    templateUrl: '/js/components/user/user.html',
+    templateUrl: '/js/components/admin/user/user.html',
     controller(){},
     bindings: {
         user: "<"

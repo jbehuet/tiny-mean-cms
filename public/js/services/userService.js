@@ -1,15 +1,18 @@
-class UserService {
+((app) => {
 
-    constructor($http) {
-			this.$http = $http
-    }
+    app.service('UserService', class UserService {
 
-    getAll() {
-        return this.$http.get('/api/users')
-    }
+        constructor($http) {
+    			this.$http = $http
+        }
 
-    create(user) {
-        return this.$http.post('/api/users', user)
-    }
+        getAll() {
+            return this.$http.get('/api/users')
+        }
 
-}
+        create(user) {
+            return this.$http.post('/api/users', user)
+        }
+
+    });
+})(angular.module('app.services'));

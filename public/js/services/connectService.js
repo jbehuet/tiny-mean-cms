@@ -1,15 +1,18 @@
-class ConnectService {
+((app) => {
 
-    constructor($http) {
-        this.$http = $http
-    }
+    app.service('ConnectService', class ConnectService {
 
-    connect(data) {
-        return this.$http.post('/api/login', data)
-    }
+        constructor($http) {
+            this.$http = $http
+        }
 
-    disconnect() {
-        return this.$http.post('/api/logout')
-    }
+        connect(data) {
+            return this.$http.post('/api/login', data)
+        }
 
-}
+        disconnect() {
+            return this.$http.post('/api/logout')
+        }
+
+    });
+})(angular.module('app.services'));
