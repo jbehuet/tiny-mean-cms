@@ -1,8 +1,9 @@
 ((app) => {
-    app.config(($routeProvider) => {
-        $routeProvider.when('/login', {
-            templateUrl: 'js/components/login/login.html',
-            controller: function($rootScope, $location, UserService) {
+    app.config(($stateProvider) => {
+        $stateProvider.state('app.signup', {
+            url:'/signup',
+            templateUrl: 'js/components/signup/signup.html',
+            controller: function($rootScope, $state, UserService) {
                 let self = this;
                 angular.extend(self, {
                     signup() {
@@ -14,7 +15,7 @@
                             this.signupMessage.message = "Redirecting..."
                             this.$timeout(() => {
                                 this.signupMessage = null
-                                this.$location.path('/')
+                                $state.go('app.login')
                             }, 2000);
                         }).catch((res) => {
                             this.signupMessage = {}
@@ -25,8 +26,8 @@
                     }
                 });
             },
-            controllerAs: 'vm'
+            controllerAs: 'ctrl'
         })
     });
 
-})(angular.module('app.login', ['ngRoute']));
+})(angular.module('app.signup', ['ui.router']));

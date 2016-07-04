@@ -1,17 +1,18 @@
 ((app) => {
-    app.config(($routeProvider) => {
-      $routeProvider.when('/admin', {
+    app.config(($stateProvider) => {
+      $stateProvider.state('app.admin', {
+          url:'/admin',
           templateUrl: 'js/components/admin/admin.html',
-          controller: function () {
+          controller: function() {
               var self = this;
               angular.extend(self, {
               });
           },
-          controllerAs: 'ctrl'
+          controllerAs: 'vm'
           // resolve: {
           //     connected: checkIsConnected
           // }
       })
     });
 
-})(angular.module('app.admin', ['ngRoute']));
+})(angular.module('app.admin', ['ui.router']));

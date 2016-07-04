@@ -15,26 +15,13 @@
     }
 
 
-    app.config(($routeProvider, $httpProvider) => {
-        $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainController',
-                controllerAs: 'vm',
-                resolve: {
-                    connected: checkIsConnected
-                }
-            })
-            .when('/signup', {
-                templateUrl: 'views/signup.html',
-                controller: 'SignupController',
-                controllerAs: 'vm'
-            })
-            .when('/about', {
-                templateUrl: 'views/about.html'
-            })
-            .otherwise({
-                redirectTo: '/'
-            })
+    app.config(($stateProvider, $urlRouterProvider) => {
+        $urlRouterProvider.otherwise('/');
+        $stateProvider.state('app', {
+            url: '',
+            abstract: true,
+            template: '<app></app>',
+            resolve: {}
+        })
     })
 })(angular.module('app.config'));

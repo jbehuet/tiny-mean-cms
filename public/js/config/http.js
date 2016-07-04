@@ -1,5 +1,5 @@
 ((app) => {
-    app.config(function($httpProvider) {
+    app.config(($httpProvider) => {
         $httpProvider.interceptors.push(($q, $location, $rootScope) => {
             return {
                 request(config) {

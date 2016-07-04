@@ -1,14 +1,16 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nom</th>
-            <th>Admin</th>
+<section>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="user in $ctrl.users">
+            <td>{{user._id}}</td>
+            <td>{{user.name}}</td>
+            <td><span class="label ui teal bg" ng-if="user.isAdmin">Administrateur</span></td>
         </tr>
-    </thead>
-    <tr ng-repeat="user in $ctrl.users">
-        <td>{{user._id}}</td>
-        <td>{{user.name}}</td>
-        <td><span class="label ui teal bg" ng-if="user.isAdmin">Administrateur</span></td>
-    </tr>
-</table>
+    </table>
+</section>

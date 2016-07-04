@@ -1,8 +1,9 @@
 ((app) => {
-    app.config(($routeProvider) => {
-        $routeProvider.when('/login', {
+    app.config(($stateProvider) => {
+        $stateProvider.state('app.login', {
+            url: '/',
             templateUrl: 'js/components/login/login.html',
-            controller: function($rootScope, $location, ConnectService) {
+            controller: function($rootScope, $state, ConnectService) {
                 let self = this;
                 angular.extend(self, {
                     connect() {
@@ -10,7 +11,7 @@
                             $rootScope.token = res.data.token
                             $rootScope.user = res.data.user
                             this.loginMessage = null
-                            $location.path('/')
+                            $state.go('app.home')
                         }).catch(() => {
                             this.loginMessage = {}
                             this.loginMessage.type = "error"
@@ -20,8 +21,8 @@
                     }
                 });
             },
-            controllerAs: 'vm'
+            controllerAs: 'ctrl'
         })
     });
 
-})(angular.module('app.login', ['ngRoute']));
+})(angular.module('app.login', ['ui.router']));

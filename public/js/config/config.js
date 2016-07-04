@@ -1,2 +1,2 @@
 ((app) => {
-})(angular.module('app.config', ['ngRoute']));
+})(angular.module('app.config', ['ui.router']));

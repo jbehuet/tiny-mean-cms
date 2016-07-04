@@ -1,4 +1,4 @@
-const run = ($rootScope, $location, ConnectService) => {
+const run = ($rootScope, $location, $state, ConnectService) => {
     // Watch path
     let path = () => {
         return $location.path()
@@ -11,8 +11,8 @@ const run = ($rootScope, $location, ConnectService) => {
     $rootScope.logout = () => {
         $rootScope.token = null
         $rootScope.user = null
-        ConnectService.disconnect().then(() =>{
-            $location.url('/login')
+        ConnectService.disconnect().then(() => {
+            $state.go('app.login')
         })
     }
 }
@@ -32,8 +32,15 @@ const checkPassword = () => {
     }
 }
 
-angular.module('app', ['ngRoute', 'app.config', 'app.services', 'app.login', 'app.admin'])
+angular.module('app', [
+        'ui.router',
+        'app.config',
+        'app.services',
+        'app.common',
+        'app.login',
+        'app.signup',
+        'app.home',
+        'app.admin'])
     .directive('checkPassword', checkPassword)
     .component('alert', alertComponent)
-    .controller('MainController', MainController)
     .run(run);
