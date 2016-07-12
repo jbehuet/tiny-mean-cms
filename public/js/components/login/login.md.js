@@ -1,6 +1,6 @@
 ((app) => {
     app.config(($stateProvider) => {
-        $stateProvider.state('app.login', {
+        $stateProvider.state('login', {
             url: '/login',
             template: '<login />'
         })
