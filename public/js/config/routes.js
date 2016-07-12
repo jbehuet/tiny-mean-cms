@@ -4,7 +4,7 @@
         $stateProvider.state('app', {
             url: '',
             abstract: true,
-            template: '<navbar /><app />',
+            template: '<app />',
             resolve: {}
         })
     })
