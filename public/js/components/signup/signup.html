@@ -3,14 +3,14 @@
         <h2 class="ui teal image header text-center">
           Create account
         </h2>
-        <alert message="ctrl.signupMessage" ng-if="(ctrl.signupMessage)"></alert>
+        <alert message="$ctrl.signupMessage" ng-if="($ctrl.signupMessage)"></alert>
         <form name="formCreate" class="login-form">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">
                       <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" class="form-control" id="inputName" placeholder="Your name" ng-model="ctrl.user.name" ng-required="true">
+                    <input type="text" class="form-control" id="inputName" placeholder="Your name" ng-model="$ctrl.user.name" ng-required="true">
                 </div>
             </div>
             <div class="form-group">
@@ -18,7 +18,7 @@
                     <span class="input-group-addon">
                       <i class="fa fa-asterisk"></i>
                     </span>
-                    <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="Your password" ng-model="ctrl.user.password" ng-required="true">
+                    <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="Your password" ng-model="$ctrl.user.password" ng-required="true">
                 </div>
             </div>
             <div class="form-group" ng-class="{ 'has-error': formCreate.inputConfirmPass.$error.passwordMatch }">
@@ -26,11 +26,11 @@
                     <span class="input-group-addon">
                       <i class="fa fa-asterisk"></i>
                     </span>
-                    <input type="password" class="form-control" id="inputConfirmPass" name="inputConfirmPass" placeholder="Confirm your password" ng-model="ctrl.confirm_password" ng-required="true" check-password="inputPass">
+                    <input type="password" class="form-control" id="inputConfirmPass" name="inputConfirmPass" placeholder="Confirm your password" ng-model="$ctrl.confirm_password" ng-required="true" check-password="inputPass">
                 </div>
             </div>
             <div class="form-group row frm-buttons">
-                <button type="submit" class="btn ui teal col-sm-5" ng-disabled="formCreate.$invalid" ng-click="ctrl.signup()">Create</button>
+                <button type="submit" class="btn ui teal col-sm-5" ng-disabled="formCreate.$invalid" ng-click="$ctrl.signup()">Create</button>
                 <a class="btn btn-danger col-sm-5 col-sm-offset-2" href="#/">Cancel</a>
             </div>
         </form>
