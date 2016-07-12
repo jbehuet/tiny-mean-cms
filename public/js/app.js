@@ -1,22 +1,3 @@
-const run = ($rootScope, $location, $state, ConnectService) => {
-    // Watch path
-    let path = () => {
-        return $location.path()
-    }
-    $rootScope.$watch(path, (newVal, oldVal) => {
-        $rootScope.activetab = newVal
-    });
-
-    // Logout
-    $rootScope.logout = () => {
-        $rootScope.token = null
-        $rootScope.user = null
-        ConnectService.disconnect().then(() => {
-            $state.go('app.login')
-        })
-    }
-}
-
 const checkPassword = () => {
     return {
         require: 'ngModel',
@@ -42,5 +23,4 @@ angular.module('app', [
         'app.home',
         'app.admin'])
     .directive('checkPassword', checkPassword)
-    .component('alert', alertComponent)
-    .run(run);
+    .run();

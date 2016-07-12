@@ -16,7 +16,7 @@
 
 </head>
 
-<body ng-style="{'bsackground-color': (activetab=='/login' || activetab=='/signup') ? '#DADADA' : '#FFF'}">
+<body>
     <div class="ng-cloak cs-loader">
       <div class="cs-loader-inner">
           <label> ●</label>
@@ -29,7 +29,6 @@
     </div>
 
     <div class="ng-cloak">
-      <ng-include src="'views/navbar.html'"></ng-include>
       <ui-view></ui-view>
     </div>
 </body>
@@ -41,13 +40,13 @@
 <script src="vendor/angular.min.js"></script>
 <script src="vendor/angular-ui-router.min.js"></script>
 
-<script src="js/services/services.js"></script>
+<script src="js/services/services.md.js"></script>
 <script src="js/services/ConnectService.js"></script>
 <script src="js/services/UserService.js"></script>
 
-<script src="js/components/common/common.js"></script>
+<script src="js/components/common/common.md.js"></script>
 <script src="js/components/common/app.js"></script>
-<script src="js/components/common/alert/alert.js"></script>
+<script src="js/components/common/navbar.js"></script>
 
 <script src="js/components/login/login.md.js"></script>
 <script src="js/components/login/login.js"></script>
@@ -63,7 +62,7 @@
 
 <script src="js/components/admin/usersList/usersList.js"></script>
 
-<script src="js/config/config.js"></script>
+<script src="js/config/config.md.js"></script>
 <script src="js/config/http.js"></script>
 <script src="js/config/routes.js"></script>
 

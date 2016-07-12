@@ -1,8 +1,8 @@
-<header class="navbar navbar-default navbar-fixed-top" role="navigation" ng-if="token">
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <ul class="nav navbar-nav pull-left">
-                <li ng-class="{selected: activetab=='/'}" ng-if="token"><a ui-sref="app.home">Home</a></li>
+                <li ng-class="{selected: activetab=='/'}"><a ui-sref="app.home">Home</a></li>
             </ul>
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -14,10 +14,10 @@
         <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav pull-right">
                 <li ng-class="{selected: activetab=='/about'}"><a href="#/about"><i class="fa fa-info-circle"></i> About</a></li>
-                <li class="dropdown" ng-if="token">
+                <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://jbehuet.github.io/assets/images/profil.png" alt="" class="circle"> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-if="user.isAdmin"><a ui-sref="app.admin"><i class="fa fa-gear"></i> Administration</a></li>
+                        <li><a ui-sref="app.admin"><i class="fa fa-gear"></i> Administration</a></li>
                         <li><a href="#/" ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
