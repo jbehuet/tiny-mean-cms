@@ -1,6 +1,6 @@
 ((app) => {
     app.config(($httpProvider) => {
-        $httpProvider.interceptors.push(($q, $location, $rootScope) => {
+        $httpProvider.interceptors.push(($q, $state, $rootScope) => {
             return {
                 request(config) {
                     config.headers = config.headers || {};
@@ -10,7 +10,7 @@
                 },
                 responseError(response) {
                     if (response.status === 401 || response.status === 403)
-                        $location.path('/')
+                        $state.go('app.login')
                     return $q.reject(response)
                 }
             }
