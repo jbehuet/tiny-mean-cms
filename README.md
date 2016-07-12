@@ -4,10 +4,19 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 
 ## How to
 
-Requirements :
+### Requirements
 * NodeJS
 * MongoDB
+* Nodemon (debug)
 
-### Exec
+### Installation
 
-`$ MONGODB_URI='mongodb://localhost:27017/mean-starter' npm start`
+```bash
+git clone https://github.com/jbehuet/mean-starter.git   
+cd mean-starter  
+npm i
+```
+
+### Execution
+
+`npm start`
