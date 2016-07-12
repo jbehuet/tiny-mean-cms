@@ -19,7 +19,7 @@ var User = {
 
     connect: function(req, res) {
         if (!req.body.name || !req.body.password){
-          res.status(404).send("User not found");
+          res.status(404).send("User not found")
         } else {
         User.model.findOne(req.body, {
             password: 0
