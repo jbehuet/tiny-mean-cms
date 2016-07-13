@@ -4,6 +4,5 @@
           url:'/admin',
           template: '<admin />'
       })
-    });
-
-})(angular.module('app.admin', ['ui.router']));
+    })
+})(angular.module('app.admin', ['ui.router']))

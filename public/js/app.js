@@ -1,17 +1,45 @@
+// toastr
+/*jshint -W117 */
+toastr.options = {
+    "positionClass": "toast-bottom-right"
+}
+
 const checkPassword = () => {
     return {
         require: 'ngModel',
         link(scope, elem, attrs, ctrl) {
-            var firstPassword = '#' + attrs.checkPassword;
+            let firstPassword = '#' + attrs.checkPassword
             elem.add(firstPassword).on('keyup', () => {
                 scope.$apply(() => {
-                    let v = elem.val() === $(firstPassword).val();
-                    ctrl.$setValidity('passwordMatch', v);
+                    let v = elem.val() === $(firstPassword).val()
+                    ctrl.$setValidity('passwordMatch', v)
                 })
             })
         }
     }
 }
+
+const gravatar = () => {
+    return {
+        replace: true,
+        required: 'email',
+        template: '<img ng-src="https://www.gravatar.com/avatar/{{hash}}?s={{size}}&d=identicon" />',
+        link: function(scope, element, attrs) {
+            attrs.$observe('email', function(value) {
+                if (!value) return
+
+                console.log(value)
+
+                scope.hash = md5(value.toLowerCase())
+                scope.size = attrs.size
+
+                if (angular.isUndefined(scope.size))
+                    scope.size = 60
+            })
+        }
+    }
+}
+
 
 angular.module('app', [
         'ui.router',
@@ -21,6 +49,8 @@ angular.module('app', [
         'app.login',
         'app.signup',
         'app.home',
-        'app.admin'])
+        'app.admin'
+    ])
     .directive('checkPassword', checkPassword)
-    .run();
+    .directive('gravatar', gravatar)
+    .run()

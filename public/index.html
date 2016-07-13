@@ -11,6 +11,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -18,30 +19,33 @@
 
 <body>
     <div class="ng-cloak cs-loader">
-      <div class="cs-loader-inner">
-          <label> ●</label>
-          <label> ●</label>
-          <label> ●</label>
-          <label> ●</label>
-          <label> ●</label>
-          <label> ●</label>
-      </div>
+        <div class="cs-loader-inner">
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+        </div>
     </div>
 
     <div class="ng-cloak">
-      <ui-view></ui-view>
+        <ui-view></ui-view>
     </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<!-- MD5 -->
+<script src="vendor/md5.min.js"></script>
 
 <!-- AngularJS -->
 <script src="vendor/angular.min.js"></script>
 <script src="vendor/angular-ui-router.min.js"></script>
 
 <script src="js/services/services.md.js"></script>
-<script src="js/services/ConnectService.js"></script>
 <script src="js/services/UserService.js"></script>
 
 <script src="js/components/common/common.md.js"></script>

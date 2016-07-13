@@ -6,4 +6,4 @@
         })
     });
 
-})(angular.module('app.signup', ['ui.router']));
+})(angular.module('app.signup', ['ui.router']))

@@ -1,3 +1,2 @@
 ((app) => {
-
-})(angular.module('app.common', []));
+})(angular.module('app.common', []))

@@ -2,7 +2,7 @@ var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    name: {
+    email: {
         type: String,
         required: true,
         unique: true
@@ -18,7 +18,7 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     connect: function(req, res) {
-        if (!req.body.name || !req.body.password){
+        if (!req.body.email || !req.body.password){
           res.status(404).send("User not found")
         } else {
         User.model.findOne(req.body, {
@@ -65,7 +65,7 @@ var User = {
                     res.json(user);
                 else {
                     if (err.code === 11000 || err.code === 11001)
-                        err.message = "Username " + req.body.name + " already exist";
+                        err.message = "Email " + req.body.email + " already use";
 
                     res.status(500).send(err.message);
                 }

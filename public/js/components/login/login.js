@@ -1,19 +1,14 @@
 ((app) => {
     app.component("login", {
         templateUrl: '/js/components/login/login.html',
-        controller(ConnectService, $state, $rootScope) {
+        controller(UserService, $state) {
             angular.extend(this,{
                 connect: () => {
-                    ConnectService.connect(this.user).then((res) => {
-                        $rootScope.token = res.data.token
-                        $rootScope.user = res.data.user
-                        this.loginMessage = null
+                    UserService.connect(this.user).then((res) => {
+                        toastr.success('Have fun storming the castle!', 'Miracle Max Says')
                         $state.go('app.home')
                     }).catch(() => {
-                        this.loginMessage = {}
-                        this.loginMessage.type = "error"
-                        this.loginMessage.title = "Connexion error"
-                        this.loginMessage.message = "Error login or password"
+                        //TODO
                     });
                 }
             })

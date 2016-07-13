@@ -1,6 +1,6 @@
 ((app) => {
     app.config(($httpProvider) => {
-        $httpProvider.interceptors.push(($q, $location, $rootScope) => {
+        $httpProvider.interceptors.push(($q, $injector, $rootScope) => {
             return {
                 request(config) {
                     config.headers = config.headers || {};
@@ -9,11 +9,12 @@
                     return config
                 },
                 responseError(response) {
+                    let state = $injector.get('$state')
                     if (response.status === 401 || response.status === 403)
-                        $location.path('/')
+                        state.go('login')
                     return $q.reject(response)
                 }
             }
         })
-    });
-})(angular.module('app.config'));
+    })
+})(angular.module('app.config'))
