@@ -2,17 +2,17 @@
 
     app.service('UserService', class UserService {
 
-        constructor($http) {
+        constructor($http, $cookies) {
             this.$http = $http
+            this.$cookies = $cookies
             this.currentUser = null
-            this.currentToken = null
         }
 
         connect(data) {
             return new Promise((resolve, reject) => {
                 this.$http.post('/api/login', data).then((res) => {
                     this.currentUser = res.data.user
-                    this.currentToken = res.data.token
+                    this.$cookies.put('token', res.data.token)
                     resolve(res.data)
                 }).catch(() => {
                     reject()

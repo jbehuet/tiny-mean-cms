@@ -42,6 +42,7 @@ const gravatar = () => {
 
 angular.module('app', [
         'ui.router',
+        'ngCookies',
         'app.config',
         'app.services',
         'app.common',

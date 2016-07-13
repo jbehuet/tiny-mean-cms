@@ -1,11 +1,11 @@
 ((app) => {
     app.config(($httpProvider) => {
-        $httpProvider.interceptors.push(($q, $injector, $rootScope) => {
+        $httpProvider.interceptors.push(($q, $injector, $cookies) => {
             return {
                 request(config) {
                     config.headers = config.headers || {};
-                    if ($rootScope.token)
-                        config.headers.authorization = $rootScope.token
+                    if ($cookies.get('token'))
+                        config.headers.authorization = $cookies.get('token')
                     return config
                 },
                 responseError(response) {
