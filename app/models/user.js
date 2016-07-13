@@ -7,6 +7,8 @@ var userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    firstname: String,
+    lastname: String,
     password: String,
     isAdmin: {
         type: Boolean,
@@ -18,28 +20,28 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     connect: function(req, res) {
-        if (!req.body.email || !req.body.password){
-          res.status(404).send("User not found")
+        if (!req.body.email ||  !req.body.password) {
+            res.status(404).send("User not found")
         } else {
-        User.model.findOne(req.body, {
-            password: 0
-        }, function(err, user) {
-            if (err || !user)
-                res.sendStatus(403);
-            else {
-                var token = jwt.sign(user, 'tokenSecret', {
-                    expiresInMinutes: 1440 // expires in 24 hours
-                });
+            User.model.findOne(req.body, {
+                password: 0
+            }, function(err, user) {
+                if (err || !user)
+                    res.sendStatus(403);
+                else {
+                    var token = jwt.sign(user, 'tokenSecret', {
+                        expiresInMinutes: 1440 // expires in 24 hours
+                    });
 
-                // return the information including token as JSON
-                res.json({
-                    success: true,
-                    user: user,
-                    token: token
-                });
-            }
-        });
-      }
+                    // return the information including token as JSON
+                    res.json({
+                        success: true,
+                        user: user,
+                        token: token
+                    });
+                }
+            });
+        }
     },
 
     findAll: function(req, res) {
@@ -65,7 +67,7 @@ var User = {
                     res.json(user);
                 else {
                     if (err.code === 11000 || err.code === 11001)
-                        err.message = "Email " + req.body.email + " already use";
+                        err.message = req.body.email + " already use";
 
                     res.status(500).send(err.message);
                 }

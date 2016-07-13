@@ -1,5 +1,4 @@
 // toastr
-/*jshint -W117 */
 toastr.options = {
     "positionClass": "toast-bottom-right"
 }

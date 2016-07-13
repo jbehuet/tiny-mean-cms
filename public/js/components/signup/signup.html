@@ -9,7 +9,7 @@
                     <span class="input-group-addon">
                       <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Your email" ng-model="$ctrl.user.email" ng-required="true">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Your email" ng-model="$ctrl.user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
                 </div>
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group row frm-buttons">
                 <button type="submit" class="btn ui teal col-sm-5" ng-disabled="formCreate.$invalid" ng-click="$ctrl.signup()">Create</button>
-                <a class="btn btn-danger col-sm-5 col-sm-offset-2" href="#/">Cancel</a>
+                <a class="btn btn-danger col-sm-5 col-sm-offset-2" ui-sref="login">Cancel</a>
             </div>
         </form>
     </div>

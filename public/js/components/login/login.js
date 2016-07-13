@@ -5,10 +5,10 @@
             angular.extend(this,{
                 connect: () => {
                     UserService.connect(this.user).then((res) => {
-                        toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+                        toastr.success(`Welcome ${(res.user.firstname || '') + ' ' + (res.user.lastname || '')} !`)
                         $state.go('app.home')
-                    }).catch(() => {
-                        //TODO
+                    }).catch((res) => {
+                        toastr.error('Please try again...')
                     });
                 }
             })
