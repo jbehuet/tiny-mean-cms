@@ -26,9 +26,7 @@ const gravatar = () => {
         link: function(scope, element, attrs) {
             attrs.$observe('email', function(value) {
                 if (!value) return
-
-                console.log(value)
-
+                
                 scope.hash = md5(value.toLowerCase())
                 scope.size = attrs.size
 

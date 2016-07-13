@@ -2,9 +2,10 @@
 
     app.service('UserService', class UserService {
 
-        constructor($http, $cookies) {
+        constructor($http, $cookies, $window) {
             this.$http = $http
             this.$cookies = $cookies
+            this.$window = $window
             this.currentUser = null
         }
 
@@ -36,6 +37,13 @@
 
         getCurrent() {
             return new Promise((resolve, reject) => {
+                if (!this.currentUser){
+                  let payload = this.$cookies.get('token').split('.')[1]
+                  payload = this.$window.atob(payload)
+                  payload = JSON.parse(payload)
+                  this.currentUser = payload._doc
+                }
+
                 resolve(this.currentUser)
             })
         }

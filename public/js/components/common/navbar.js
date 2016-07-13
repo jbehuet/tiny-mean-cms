@@ -1,10 +1,17 @@
 ((app) => {
     app.component("navbar", {
         templateUrl: '/js/components/common/navbar.html',
-        controller(UserService) {
-            UserService.getCurrent().then((user) => {
-                this.user = user
-                console.log(this.user)
+        controller(UserService, $state, $cookies) {
+            angular.extend(this, {
+                $onInit() {
+                    UserService.getCurrent().then((user) => {
+                        this.user = user
+                    })
+                },
+                logout() {
+                  $cookies.remove("token");
+                  $state.go('login')
+                }
             })
         }
     })

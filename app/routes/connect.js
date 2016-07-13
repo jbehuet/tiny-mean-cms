@@ -8,6 +8,7 @@ var Auth = require('../middlewares/authorization.js');
 module.exports 	= function(app) {
 
 	app.get('/api/loggedin', Auth.user.hasAuthorization, function(req, res, next) {
+				console.log()
         res.sendStatus(200);
 	});
 
