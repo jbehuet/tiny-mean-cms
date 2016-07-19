@@ -24,6 +24,8 @@
         }
 
         disconnect() {
+            this.$cookies.remove("token")
+            this.currentUser = null
             return this.$http.post('/api/logout')
         }
 
@@ -37,11 +39,16 @@
 
         getCurrent() {
             return new Promise((resolve, reject) => {
-                if (!this.currentUser){
-                  let payload = this.$cookies.get('token').split('.')[1]
-                  payload = this.$window.atob(payload)
-                  payload = JSON.parse(payload)
-                  this.currentUser = payload._doc
+                if (!this.$cookies.get('token')) reject()
+
+                if (!this.currentUser) {
+                    let payload = this.$cookies.get('token').split('.')[1]
+                    payload = this.$window.atob(payload)
+                    payload = JSON.parse(payload)
+                    this.currentUser = payload._doc
+                    // TODO
+                    // Check token expiration
+                    //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
                 }
 
                 resolve(this.currentUser)

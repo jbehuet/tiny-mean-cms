@@ -3,7 +3,7 @@
         templateUrl: '/js/components/login/login.html',
         controller(UserService, $state) {
             angular.extend(this,{
-                connect: () => {
+                connect() {
                     UserService.connect(this.user).then((res) => {
                         toastr.success(`Welcome ${(res.user.firstname || '') + ' ' + (res.user.lastname || '')} !`)
                         $state.go('app.home')
