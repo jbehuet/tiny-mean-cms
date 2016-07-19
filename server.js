@@ -1,47 +1,51 @@
-// set up ======================================================================
-var http			= require('http');
-var session	    	= require('express-session');
-var express			= require('express');
-var app				= exports.app = express();								// create our app w/ express
-var port			= process.env.PORT || 8000;					// set the port
-var morgan			= require('morgan');
-var bodyParser		= require('body-parser');
-var methodOverride	= require('method-override');
-
-// Mongoose ====================================================================
-require('./config/database');
+// Set up ======================================================================
+let http = require('http')
+let express = require('express')
+let app = exports.app = express()
+let port = process.env.PORT || 8000
+let morgan = require('morgan')
+let bodyParser = require('body-parser')
+let methodOverride = require('method-override')
+let api = require('./app/routes')
+let db = require('./config/database')
+let server = http.Server(app)
 
 // Express =====================================================================
+app.use(express.static(__dirname + '/public'))
+app.use(morgan('dev'))
 
-app.use(express.static(__dirname + '/public'));					// set the static files location /public/img will be /img for users
-app.use(morgan('dev'));											// log every request to the console
-app.use(bodyParser.urlencoded({'extended':'true'}));			// parse application/x-www-form-urlencoded
-app.use(bodyParser.json());										// parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(methodOverride('X-HTTP-Method-Override'));				// override with the X-HTTP-Method-Override header in the request
+app.use(bodyParser.urlencoded({
+    'extended': 'true'
+}))
+app.use(bodyParser.json())
+app.use(bodyParser.json({
+    type: 'application/vnd.api+json'
+}))
 
-app.use(session({ secret: 'sampleSecretSession', resave: true, saveUninitialized: true }));
+app.use(methodOverride('X-HTTP-Method-Override'))
 
-// Cross Domain
-app.use(function(request, response, next) {
-    response.header('Access-Control-Allow-Credentials', true);
-    response.header('Access-Control-Allow-Origin', request.headers.origin);
-    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    response.header('Access-Control-Allow-Headers', 'X-ACCESS_TOKEN, Access-Control-Allow-Origin, Authorization, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-    next();
-});
+app.use((request, response, next) => {
+    response.header('Access-Control-Allow-Credentials', true)
+    response.header('Access-Control-Allow-Origin', request.headers.origin)
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+    response.header('Access-Control-Allow-Headers', 'X-ACCESS_TOKEN, Access-Control-Allow-Origin, Authorization, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept')
+    next()
+})
 
-// Serveur ====================================================================
-var server = http.Server(app);
+app.use('/api', api(app))
 
-// Routes ======================================================================
-require('./app/routes')(app);
+app.use((error, request, response, next) => {
+  // Middleware to catch all errors
+  console.error(error.stack)
+  response.status(500).send(error.message)
+})
 
-process.on('SIGINT', function() {
-  console.log("\nStopping...");
-  process.exit();
-});
+db(() => {
+    process.on('SIGINT', function() {
+        console.log("\nStopping...")
+        process.exit()
+    });
 
-// listen (start app with node server.js) ======================================
-server.listen(port);
-console.log("App listening on port " + port);
+    server.listen(port)
+    console.log(`server listening on port ${port}`)
+})

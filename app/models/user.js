@@ -1,98 +1,113 @@
-var jwt = require('jsonwebtoken');
-var mongoose = require('mongoose');
+let jwt = require('jsonwebtoken')
+let mongoose = require('mongoose')
+const ENV = require('../../config/env')
 
-var userSchema = new mongoose.Schema({
+let model = mongoose.model('User', new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: [(email) => {
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+        }, 'Please use a valid email address'],
     },
     firstname: String,
     lastname: String,
-    password: String,
+    password: {
+        type: String,
+        required: true
+    },
     isAdmin: {
         type: Boolean,
         default: false
     }
-});
+}))
 
-var User = {
-    model: mongoose.model('User', userSchema),
+class User {
 
-    connect: function(req, res) {
+    connect(req, res, next) {
         if (!req.body.email ||  !req.body.password) {
-            res.status(404).send("User not found")
+            res.status(400).send("Please enter your email and password")
         } else {
-            User.model.findOne(req.body, {
+            model.findOne(req.body, {
                 password: 0
-            }, function(err, user) {
-                if (err || !user)
-                    res.sendStatus(403);
+            }, (err, user) => {
+                if (err)
+                    next(err)
+                else if (!user)
+                    res.sendStatus(403)
                 else {
-                    var token = jwt.sign(user, 'tokenSecret', {
-                        expiresInMinutes: 1440 // expires in 24 hours
-                    });
+                    let token = jwt.sign(user, ENV.token, {
+                        expiresIn: "24h"
+                    })
 
                     // return the information including token as JSON
                     res.json({
                         success: true,
                         user: user,
                         token: token
-                    });
+                    })
                 }
-            });
+            })
         }
-    },
+    }
 
-    findAll: function(req, res) {
-        User.model.find({}, {
+    findAll(req, res, next) {
+        model.find({}, {
             password: 0
-        }, function(err, users) {
-            res.json(users);
-        });
-    },
+        }, (err, users) => {
+            if (err)
+                next(err)
+            else
+                res.json(users);
+        })
+    }
 
-    findById: function(req, res) {
-        User.model.findById(req.params.id, {
+    findById(req, res, next) {
+        model.findById(req.params.id, {
             password: 0
-        }, function(err, user) {
+        }, (err, user) => {
+          if (err)
+              next(err)
+          else
             res.json(user);
-        });
-    },
+        })
+    }
 
-    create: function(req, res) {
-        User.model.create(req.body,
-            function(err, user) {
-                if (!err)
-                    res.json(user);
-                else {
-                    if (err.code === 11000 || err.code === 11001)
-                        err.message = req.body.email + " already use";
+    create(req, res, next) {
+        model.create(req.body, (err, user) => {
+            if (!err)
+                res.json(user);
+            else {
+                if (err.code === 11000 || err.code === 11001)
+                    err.message = req.body.email + " already use"
 
-                    res.status(500).send(err.message);
-                }
-            });
-    },
+                next(err)
+            }
+        })
+    }
 
-    update: function(req, res) {
-        User.model.update({
+    update(req, res, next) {
+        model.update({
             _id: req.params.id
-        }, req.body, function(err, user) {
-            console.log(user);
+        }, req.body, (err, user) => {
+            console.log(user)
             if (err)
-                res.status(500).send(err.message);
-            res.json(user);
-        });
-    },
+                next(err)
+            else
+                res.json(user)
+        })
+    }
 
-    delete: function(req, res) {
-        User.model.findByIdAndRemove(req.params.id, function(err) {
+    delete(req, res, next) {
+        model.findByIdAndRemove(req.params.id, (err) => {
             if (err)
-                res.status(500).send(err.message);
-            res.sendStatus(200);
+                next(err)
+            else
+                res.sendStatus(200)
         })
     }
 }
 
 
-module.exports = User;
+module.exports = new User()

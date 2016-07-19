@@ -24,9 +24,11 @@
         }
 
         disconnect() {
+          return new Promise((resolve, reject) => {
             this.$cookies.remove("token")
             this.currentUser = null
-            return this.$http.post('/api/logout')
+            resolve()
+          })
         }
 
         getAll() {

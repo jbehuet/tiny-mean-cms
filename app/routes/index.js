@@ -1,34 +1,27 @@
-/* ------------------------------------------------------------------------- *\
-	 							ROUTES
-\* ------------------------------------------------------------------------- */
+/* -------------------------------- *\
+	 				      ROUTES
+\* -------------------------------- */
+let express = require('express')
+let fs = require('fs')
+let path = require('path')
 
-module.exports 	= function(app) {
+module.exports = (app) => {
+    const router = express.Router()
 
-	'use strict';
-  	var fs   = require('fs');
-  	var path = require('path');
+    fs.readdir('./app/routes', (err, files) => {
+        if (err) throw err
+        else {
+            files.forEach((file) => {
+                let controller = file.substr(0, file.lastIndexOf('.'))
+                if (controller !== 'index') require('./' + controller)(router)
+            })
+        }
 
-  	fs.readdir('./app/routes', loadControllers);
+        // application --------------------------------------------------------
+        app.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname, '../../public', 'index.html'))
+        })
+    })
 
-	function loadControllers(error, files) {
-		if (error)
-		  throw error;
-		else
-		  files.forEach(requireController);
-
-		// application -------------------------------------------------------------
-        app.get('*', function(req, res){
-		  res.sendFile(path.join(__dirname, '../../public', 'index.html'));
-		});
-	}
-
-	function requireController(file) {
-		// remove the file extension
-		var controller = file.substr(0, file.lastIndexOf('.'));
-		// do not require index.js (this file)
-		if (controller !== 'index') {
-		  // require the controller
-		  require('./' + controller)(app);
-		}
-	}
+    return router
 }

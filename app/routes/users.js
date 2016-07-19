@@ -1,20 +1,21 @@
-/* ------------------------------------------------------------------------- *\
-	 						   ROUTES USERS
-\* ------------------------------------------------------------------------- */
+/* -------------------------------- *\
+	 				   ROUTES USERS
+\* -------------------------------- */
+let User = require('../models/user.js')
+let Auth = require('../middlewares/authorization.js')
 
-var User = require('../models/user.js');
-var Auth = require('../middlewares/authorization.js');
+module.exports = (app) => {
 
-module.exports 	= function(app) {
+	app.post('/login', User.connect)
 
-	app.get('/api/users', Auth.user.isAdministrator, User.findAll);
+	app.get('/users', Auth.user.isAdministrator, User.findAll)
 
-	app.get('/api/users/:id', Auth.user.isAdministrator, User.findById);
+	app.get('/users/:id', Auth.user.isAdministrator, User.findById)
 
-	app.post('/api/users', User.create);
+	app.post('/users', User.create)
 
-	app.put('/api/users/:id', Auth.user.isAdministrator, User.update);
+	app.put('/users/:id', Auth.user.isAdministrator, User.update)
 
-	app.delete('/api/users/:id', Auth.user.isAdministrator, User.delete);
+	app.delete('/users/:id', Auth.user.isAdministrator, User.delete)
 
 }

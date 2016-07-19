@@ -1,33 +1,34 @@
 /*
  *  User authorization routing middleware
  */
-var jwt = require('jsonwebtoken');
+let jwt = require('jsonwebtoken')
+const ENV = require('../../config/env')
 
 exports.user = {
 
-    hasAuthorization: function (req, res, next) {
+    hasAuthorization(req, res, next) {
         if (req.headers.authorization) {
-            jwt.verify(req.headers.authorization, 'tokenSecret', function (err, decoded) {
+            jwt.verify(req.headers.authorization, ENV.token, (err, decoded) => {
                 if (err)
-                    return res.sendStatus(403);
+                    return res.sendStatus(403)
                 else
-                    next();
-            });
+                    next()
+            })
         } else {
-            return res.sendStatus(403);
+            return res.sendStatus(403)
         }
     },
 
-    isAdministrator: function (req, res, next) {
-         if (req.headers.authorization) {
-            jwt.verify(req.headers.authorization, 'tokenSecret', function (err, decoded) {
+    isAdministrator(req, res, next) {
+        if (req.headers.authorization) {
+            jwt.verify(req.headers.authorization, ENV.token, (err, decoded) => {
                 if (decoded._doc && decoded._doc.isAdmin)
-                  next()
+                    next()
                 else
-                    return res.sendStatus(403);
+                    return res.sendStatus(403)
             });
         } else {
-            return res.sendStatus(401);
+            return res.sendStatus(401)
         }
     }
-};
+}
