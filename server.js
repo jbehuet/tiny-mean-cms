@@ -35,17 +35,21 @@ app.use((request, response, next) => {
 app.use('/api', api(app))
 
 app.use((error, request, response, next) => {
-  // Middleware to catch all errors
-  console.error(error.stack)
-  response.status(500).send(error.message)
+    // Middleware to catch all errors
+    console.error(error.stack)
+    response.status(500).send(error.message)
 })
 
-db(() => {
-    process.on('SIGINT', function() {
-        console.log("\nStopping...")
-        process.exit()
-    });
+db((err) => {
+    if (err) {
+      console.error(err.stack)
+    } else {
+        process.on('SIGINT', function() {
+            console.log("\nStopping...")
+            process.exit()
+        });
 
-    server.listen(port)
-    console.log(`server listening on port ${port}`)
+        server.listen(port)
+        console.log(`server listening on port ${port}`)
+    }
 })
