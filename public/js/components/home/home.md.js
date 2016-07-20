@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.config(($stateProvider) => {
         $stateProvider.state('app.home', {
             url:'/',

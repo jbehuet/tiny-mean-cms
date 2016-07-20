@@ -1,5 +1,5 @@
 ((app) => {
-
+    'use strict'
     app.config(($stateProvider) => {
         $stateProvider.state('login', {
             url: '/login',

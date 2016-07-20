@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.component('app', {
         templateUrl: 'js/components/common/app.html',
         controller(UserService, $state){

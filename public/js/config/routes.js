@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.config(($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise('/')
         $stateProvider.state('app', {

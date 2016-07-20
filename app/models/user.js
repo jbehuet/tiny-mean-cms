@@ -1,3 +1,4 @@
+'use strict'
 let jwt = require('jsonwebtoken')
 let mongoose = require('mongoose')
 const ENV = require('../../config/env')

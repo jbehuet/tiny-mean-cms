@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.component("users", {
         templateUrl: '/js/components/admin/usersList/usersList.html',
         controller(UserService) {
@@ -18,8 +19,9 @@
                     if (angular.isUndefined(this.selectedUser.password))
                         delete this.selectedUser.password
 
-                    UserService.save(this.selectedUser).then(() => {
-                        toastr.success(`${this.selectedUser.firstname} ${this.selectedUser.lastname} saved`)
+                    UserService.save(this.selectedUser).then((res) => {
+                        //TODO set _id to user in users
+                        toastr.success(`${res.data.firstname} ${res.data.lastname} saved`)
                     }).catch((err) => {
                         toastr.error(`${err.data}`)
                     })

@@ -1,6 +1,7 @@
 /* -------------------------------- *\
 	 				   ROUTES USERS
 \* -------------------------------- */
+'use strict'
 let User = require('../models/user.js')
 let Auth = require('../middlewares/authorization.js')
 

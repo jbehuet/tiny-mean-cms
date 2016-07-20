@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.component("admin", {
         templateUrl: '/js/components/admin/admin.html',
         controller() {

@@ -1,6 +1,7 @@
 /* -------------------------------- *\
 	 				    DATABASE
 \* -------------------------------- */
+'use strict'
 let mongoose = require('mongoose')
 const ENV = require('./env')
 

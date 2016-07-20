@@ -1,6 +1,7 @@
 /*
  *  User authorization routing middleware
  */
+ 'use strict'
 let jwt = require('jsonwebtoken')
 const ENV = require('../../config/env')
 

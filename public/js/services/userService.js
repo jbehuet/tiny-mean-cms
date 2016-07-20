@@ -1,5 +1,5 @@
 ((app) => {
-
+    'use strict'
     app.service('UserService', class UserService {
 
         constructor($http, $cookies, $window) {
@@ -34,7 +34,7 @@
         getAll() {
             return this.$http.get('/api/users')
         }
-        
+
         save(user) {
             if (user._id)
                 return this.$http.put('/api/users/' + user._id, user)

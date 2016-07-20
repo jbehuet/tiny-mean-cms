@@ -1,4 +1,5 @@
 ((app) => {
+    'use strict'
     app.config(($httpProvider) => {
         $httpProvider.interceptors.push(($q, $injector, $cookies) => {
             return {

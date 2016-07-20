@@ -1,3 +1,4 @@
+'use strict'
 // Set up ======================================================================
 let http = require('http')
 let express = require('express')
