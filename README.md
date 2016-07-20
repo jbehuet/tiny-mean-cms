@@ -1,4 +1,4 @@
-# MEAN-STARTER
+# MEAN-STARTER ES6
 
 Project sample for [MEAN stack](http://mean.io/#!/)
 
@@ -12,8 +12,8 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 ### Installation
 
 ```bash
-git clone https://github.com/jbehuet/mean-starter.git   
-cd mean-starter  
+git clone https://github.com/jbehuet/mean-starter-es6.git   
+cd mean-starter-es6
 npm i
 ```
 
