@@ -91,7 +91,6 @@ class User {
         model.update({
             _id: req.params.id
         }, req.body, (err, user) => {
-            console.log(user)
             if (err)
                 next(err)
             else

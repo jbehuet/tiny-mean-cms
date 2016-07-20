@@ -14,7 +14,8 @@
         <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav pull-right">
                 <li ng-class="{selected: activetab=='/about'}"><a href="#/about"><i class="fa fa-info-circle"></i> About</a></li>
-                <li class="dropdown">
+                <li ng-if="!$ctrl.user"><a ui-sref="login"><i class="fa fa-sign-in"></i></a></li>
+                <li class="dropdown" ng-if="$ctrl.user">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <gravatar email="{{$ctrl.user.email}}" size="30" class="circle"></gravatar> <span class="caret"></span></a>
                     <ul class="dropdown-menu">

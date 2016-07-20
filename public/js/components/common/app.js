@@ -7,7 +7,7 @@
                 UserService.getCurrent().then((user) => {
                   this.user = user
                 }).catch((err)=>{
-                  $state.go('login')
+                  //$state.go('login')
                 })
               }
           })

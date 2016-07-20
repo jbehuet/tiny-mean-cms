@@ -8,98 +8,87 @@ body {
 .ng-cloak.cs-loader {
     display: block !important;
 }
-
 .cs-loader {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
-
 .cs-loader-inner {
-  transform: translateY(-50%);
-  top: 50%;
-  position: absolute;
-  width: 100%;
-  color: #00b5ad;
-  padding: 0 100px;
-  text-align: center;
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+    width: 100%;
+    color: #00b5ad;
+    padding: 0 100px;
+    text-align: center;
 }
-
 .cs-loader-inner label {
-  font-size: 20px;
-  opacity: 0;
-  display:inline-block;
+    font-size: 20px;
+    opacity: 0;
+    display: inline-block;
 }
-
 @keyframes lol {
-  0% {
-    opacity: 0;
-    transform: translateX(-300px);
-  }
-  33% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  66% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(300px);
-  }
+    0% {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    33% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    66% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
 }
-
 @-webkit-keyframes lol {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-300px);
-  }
-  33% {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-  }
-  66% {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(300px);
-  }
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-300px);
+    }
+    33% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+    66% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(300px);
+    }
 }
-
 .cs-loader-inner label:nth-child(6) {
-  -webkit-animation: lol 3s infinite ease-in-out;
-  animation: lol 3s infinite ease-in-out;
+    -webkit-animation: lol 3s infinite ease-in-out;
+    animation: lol 3s infinite ease-in-out;
 }
-
 .cs-loader-inner label:nth-child(5) {
-  -webkit-animation: lol 3s 100ms infinite ease-in-out;
-  animation: lol 3s 100ms infinite ease-in-out;
+    -webkit-animation: lol 3s 100ms infinite ease-in-out;
+    animation: lol 3s 100ms infinite ease-in-out;
 }
-
 .cs-loader-inner label:nth-child(4) {
-  -webkit-animation: lol 3s 200ms infinite ease-in-out;
-  animation: lol 3s 200ms infinite ease-in-out;
+    -webkit-animation: lol 3s 200ms infinite ease-in-out;
+    animation: lol 3s 200ms infinite ease-in-out;
 }
-
 .cs-loader-inner label:nth-child(3) {
-  -webkit-animation: lol 3s 300ms infinite ease-in-out;
-  animation: lol 3s 300ms infinite ease-in-out;
+    -webkit-animation: lol 3s 300ms infinite ease-in-out;
+    animation: lol 3s 300ms infinite ease-in-out;
 }
-
 .cs-loader-inner label:nth-child(2) {
-  -webkit-animation: lol 3s 400ms infinite ease-in-out;
-  animation: lol 3s 400ms infinite ease-in-out;
+    -webkit-animation: lol 3s 400ms infinite ease-in-out;
+    animation: lol 3s 400ms infinite ease-in-out;
 }
-
 .cs-loader-inner label:nth-child(1) {
-  -webkit-animation: lol 3s 500ms infinite ease-in-out;
-  animation: lol 3s 500ms infinite ease-in-out;
+    -webkit-animation: lol 3s 500ms infinite ease-in-out;
+    animation: lol 3s 500ms infinite ease-in-out;
 }
 
 /* navbar */
@@ -119,7 +108,7 @@ body {
 .navbar-nav> .selected> a {
     border-bottom: 2px solid #FFF;
 }
-.nav> li> a> img.circle {
+.navbar-nav> li> a> img.circle {
     border-radius: 50%;
     height: 30px;
 }
@@ -151,7 +140,7 @@ body {
     background-color: #00b5ad;
 }
 .ui.teal.text {
-    colo: #00b5ad;
+    color: #00b5ad;
 }
 .ui.teal.header {
     color: #00b5ad !important;
@@ -161,6 +150,7 @@ body {
     color: #ffffff;
     text-shadow: none;
     background-image: none;
+    border: none;
 }
 .ui.teal.btn:hover {
     background-color: #009c95;
@@ -168,55 +158,55 @@ body {
     text-shadow: none;
 }
 
-/* ----------------- *\
-	  BS CALLOUT
-\* ----------------- */
+/* cards */
 
-.bs-callout {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
+.cards {
+    margin-top: 10px;
+}
+.card.col-xs-3 {
+    width: 24%;
+    margin: 0px 1% 0px 0px;
+}
+.card {
+    border-radius: 5px;
     background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    height: 85px;
+    border: 2px solid #FFF;
 }
-.bs-callout h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
+.card:hover {
+    background-color: #efefef;
+    cursor: pointer;
+    border: 2px solid #efefef;
 }
-
-/* SUCCESS */
-
-.bs-callout-success {
-    border-left-color: #5cb85c;
+.card.selected {
+    border: 2px solid #00b5ad;
 }
-.bs-callout-success h4 {
-    color: #5cb85c;
+.card> .btn {
+    position: absolute;
+    width: 36px;
+    border-radius: 50%;
+    top: -15px;
+    right: 10px;
 }
-
-/* INFO */
-
-.bs-callout-info {
-    border-left-color: #5bc0de;
+.card-content {
+    padding: 20px;
 }
-.bs-callout-info h4 {
-    color: #5bc0de;
-}
-
-/* WARNING */
-
-.bs-callout-warning {
-    border-left-color: #f0ad4e;
-}
-.bs-callout-warning h4 {
-    color: #f0ad4e;
+.card-content> div> img {
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
 }
 
-/* DANGER */
+/* users */
 
-.bs-callout-danger {
-    border-left-color: #ce4844;
+section.users> div> h2> button {
+    margin-right: 15px;
+    min-width: 75px;
 }
-.bs-callout-danger h4 {
-    color: #ce4844;
+
+/* other */
+
+.pagination>li>a {
+    margin-right: 5px;
 }

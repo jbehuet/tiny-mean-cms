@@ -45,7 +45,6 @@ angular.module('app', [
         'app.services',
         'app.common',
         'app.login',
-        'app.signup',
         'app.home',
         'app.admin'
     ])

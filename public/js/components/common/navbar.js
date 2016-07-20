@@ -4,11 +4,17 @@
         bindings: {
             user: '<'
         },
-        controller(UserService, $state) {
+        controller(UserService, $state, $timeout) {
             angular.extend(this, {
+                $onInit(){
+                  $timeout(()=>{
+                    this.user = this.user
+                  }, 0)
+                },
                 logout() {
+                    this.user = null
                     UserService.disconnect().then(() => {
-                        $state.go('login')
+                        $state.go('app.home')
                     })
                 }
             })

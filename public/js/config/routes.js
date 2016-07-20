@@ -1,6 +1,6 @@
 ((app) => {
     app.config(($stateProvider, $urlRouterProvider) => {
-        $urlRouterProvider.otherwise('/login')
+        $urlRouterProvider.otherwise('/')
         $stateProvider.state('app', {
             url: '',
             abstract: true,
