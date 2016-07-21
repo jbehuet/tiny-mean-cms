@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("users", {
-        templateUrl: '/js/components/admin/usersList/usersList.html',
+        templateUrl: '/js/components/dashboard/usersList/usersList.html',
         controller(UserService) {
             angular.extend(this, {
                 $onInit() {
@@ -45,4 +45,4 @@
             })
         }
     })
-})(angular.module('app.admin'))
+})(angular.module('app.dashboard'))
