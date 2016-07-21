@@ -287,3 +287,9 @@ input[type=checkbox].css-checkbox:checked+ label.css-label {
     line-height: 37px;
     padding: 0;
 }
+
+/* editor */
+
+.editable {
+  background : #faebd7;
+}

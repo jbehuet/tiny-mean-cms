@@ -24,7 +24,7 @@ const gravatar = () => {
         replace: true,
         required: 'email',
         template: '<img ng-src="https://www.gravatar.com/avatar/{{hash}}?s={{size}}&d=identicon" />',
-        link: function(scope, element, attrs) {
+        link(scope, element, attrs) {
             attrs.$observe('email', function(value) {
                 if (!value) return
 
@@ -36,6 +36,28 @@ const gravatar = () => {
             })
         }
     }
+}
+
+const contenteditable = () => {
+  return {
+    require: 'ngModel',
+    link(scope, element, attrs, ctrl) {
+      // view -> model
+      element.bind('blur', () => {
+        scope.$apply(() => {
+          ctrl.$setViewValue(element.html())
+        });
+      });
+
+      // model -> view
+      ctrl.$render = () => {
+        element.html(ctrl.$viewValue)
+      };
+
+      // load init value from DOM
+      ctrl.$render()
+    }
+  }
 }
 
 
@@ -54,4 +76,5 @@ angular.module('app', [
     ])
     .directive('checkPassword', checkPassword)
     .directive('gravatar', gravatar)
+    .directive('contenteditable', contenteditable)
     .run()

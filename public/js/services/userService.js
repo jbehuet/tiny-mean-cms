@@ -2,10 +2,11 @@
     'use strict'
     app.service('UserService', class UserService {
 
-        constructor($http, $cookies, $window) {
+        constructor($http, $cookies, $window, $q) {
             this.$http = $http
             this.$cookies = $cookies
             this.$window = $window
+            this.$q = $q
             this.currentUser = null
         }
 
@@ -47,21 +48,21 @@
         }
 
         getCurrent() {
-            return new Promise((resolve, reject) => {
-                if (!this.$cookies.get('token')) reject()
+            let deferred = this.$q.defer()
+            if (!this.$cookies.get('token')) deferred.reject()
 
-                if (!this.currentUser) {
-                    let payload = this.$cookies.get('token').split('.')[1]
-                    payload = this.$window.atob(payload)
-                    payload = JSON.parse(payload)
-                    this.currentUser = payload._doc
-                        // TODO
-                        // Check token expiration
-                        //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
-                }
+            if (!this.currentUser) {
+                let payload = this.$cookies.get('token').split('.')[1]
+                payload = this.$window.atob(payload)
+                payload = JSON.parse(payload)
+                this.currentUser = payload._doc
+                    // TODO
+                    // Check token expiration
+                    //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
+            }
 
-                resolve(this.currentUser)
-            })
+            deferred.resolve(this.currentUser)
+            return deferred.promise
         }
 
     })

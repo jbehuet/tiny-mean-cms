@@ -2,9 +2,20 @@
     'use strict'
     app.component("home", {
         templateUrl: '/js/components/home/home.html',
-        controller() {
+        controller(UserService) {
             angular.extend(this,{
-              title: "Welcome !"
+              title:'Hello',
+              editMode: false,
+              save(){
+                this.editMode = false
+              },
+              $onInit() {
+                UserService.getCurrent().then((user) => {
+                  this.user = user
+                }).catch((err)=>{
+
+                })
+              }
             })
         }
     })
