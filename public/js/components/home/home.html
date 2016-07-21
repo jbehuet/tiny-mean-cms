@@ -1,9 +1,11 @@
 <section>
-    <a class="btn ui teal btn-floating" ng-if="$ctrl.editMode" ng-click="$ctrl.save()"><i class="fa fa-save"></i></a>
-    <a class="btn ui teal btn-floating" ng-if="(!$ctrl.editMode && $ctrl.user && $ctrl.user.isAdmin)" ng-click="$ctrl.editMode = true"><i class="fa fa-edit"></i></a>
+    <a class="btn ui red btn-floating cancel" ng-if="$ctrl.editMode" ng-click="$ctrl.cancel()"><i class="fa fa-close"></i></a>
+    <a class="btn ui green btn-floating" ng-if="$ctrl.editMode" ng-click="$ctrl.save()"><i class="fa fa-check"></i></a>
+    <a class="btn ui amber btn-floating" ng-if="(!$ctrl.editMode && $ctrl.user && $ctrl.user.isAdmin)" ng-click="$ctrl.editMode = true"><i class="fa fa-pencil"></i></a>
     <div class="row">
         <div class="col-lg-8">
             <h1 ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.title">{{$ctrl.title}}</h1>
+            <p ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.content">{{$ctrl.content}}</p>
         </div>
         <div class="col-md-4">
             <div class="well">

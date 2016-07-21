@@ -5,11 +5,12 @@
         controller(UserService, $state){
           angular.extend(this, {
               $onInit(){
-                // UserService.getCurrent().then((user) => {
-                //   this.user = user
-                // }).catch((err)=>{
-                //   $state.go('app.home')
-                // })
+                UserService.getCurrent().then((user) => {
+                  if (!user.isAdmin)
+                    $state.go('app.home')
+                }).catch((err)=>{
+                  $state.go('app.home')
+                })
               }
           })
         }

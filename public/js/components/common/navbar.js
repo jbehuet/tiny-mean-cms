@@ -5,12 +5,12 @@
         bindings: {
             user: '<'
         },
-        controller(UserService, $state, $timeout) {
+        controller(UserService, $state) {
             angular.extend(this, {
                 logout() {
                     this.user = null
                     UserService.disconnect().then(() => {
-                        $state.go('app.home')
+                        $state.go('app.home', {}, { reload: true })
                     })
                 }
             })

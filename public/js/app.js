@@ -1,7 +1,7 @@
 'use strict'
 // toastr
 toastr.options = {
-    "positionClass": "toast-bottom-right"
+    positionClass: "toast-bottom-right"
 }
 
 const checkPassword = () => {
@@ -39,25 +39,25 @@ const gravatar = () => {
 }
 
 const contenteditable = () => {
-  return {
-    require: 'ngModel',
-    link(scope, element, attrs, ctrl) {
-      // view -> model
-      element.bind('blur', () => {
-        scope.$apply(() => {
-          ctrl.$setViewValue(element.html())
-        });
-      });
+    return {
+        require: 'ngModel',
+        link(scope, element, attrs, ctrl) {
+            // view -> model
+            element.bind('blur', () => {
+                scope.$apply(() => {
+                    ctrl.$setViewValue(element.html())
+                })
+            })
 
-      // model -> view
-      ctrl.$render = () => {
-        element.html(ctrl.$viewValue)
-      };
+            // model -> view
+            ctrl.$render = () => {
+                element.html(ctrl.$viewValue)
+            }
 
-      // load init value from DOM
-      ctrl.$render()
+            // load init value from DOM
+            ctrl.$render()
+        }
     }
-  }
 }
 
 

@@ -49,19 +49,21 @@
 
         getCurrent() {
             let deferred = this.$q.defer()
-            if (!this.$cookies.get('token')) deferred.reject()
-
-            if (!this.currentUser) {
-                let payload = this.$cookies.get('token').split('.')[1]
-                payload = this.$window.atob(payload)
-                payload = JSON.parse(payload)
-                this.currentUser = payload._doc
-                    // TODO
-                    // Check token expiration
-                    //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
+            if (!this.$cookies.get('token')) {
+                deferred.reject()
+            } else {
+                if (!this.currentUser) {
+                    let payload = this.$cookies.get('token').split('.')[1]
+                    payload = this.$window.atob(payload)
+                    payload = JSON.parse(payload)
+                    this.currentUser = payload._doc
+                        // TODO
+                        // Check token expiration
+                        //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
+                }
+                deferred.resolve(this.currentUser)
             }
 
-            deferred.resolve(this.currentUser)
             return deferred.promise
         }
 

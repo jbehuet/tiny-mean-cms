@@ -1,5 +1,5 @@
 <section class="users">
-    <a class="btn ui teal btn-floating" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
+    <a class="btn ui amber btn-floating" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
     <div class="row">
         <h2 class="ui teal header">
           Liste des utilisateurs ({{$ctrl.users.length}})
@@ -8,7 +8,7 @@
     </div>
     <div class="cards row">
         <div class="card col-xs-3" ng-repeat="user in $ctrl.users | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedUser == user}" ng-click="$ctrl.selectedUser = user">
-            <button class="btn btn-danger col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, user)"> <i class="fa fa-trash"></i></button>
+            <button class="btn ui red col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, user)"> <i class="fa fa-trash"></i></button>
             <div class="row card-content">
                 <div class="col-xs-3">
                     <gravatar email="{{user.email}}" size="45" class="circle"></gravatar>

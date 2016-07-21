@@ -8,7 +8,7 @@
             template: '<app />'
         })
         $stateProvider.state('app.dashboard', {
-            url:'/dashboard',
+            url: '/dashboard',
             abstract: true,
             template: '<dashboard />'
         })
