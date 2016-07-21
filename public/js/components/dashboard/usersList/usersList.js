@@ -45,4 +45,4 @@
             })
         }
     })
-})(angular.module('app.dashboard'))
+})(angular.module('app.dashboard.users'))

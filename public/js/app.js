@@ -47,7 +47,10 @@ angular.module('app', [
         'app.common',
         'app.login',
         'app.home',
-        'app.dashboard'
+        'app.about',
+        'app.dashboard',
+        'app.dashboard.summary',
+        'app.dashboard.users',
     ])
     .directive('checkPassword', checkPassword)
     .directive('gravatar', gravatar)

@@ -1,6 +1,11 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
     padding-top: 70px;
     background-color: #F5F5F5;
+    color: #727272;
 }
 
 /* loader */
@@ -95,8 +100,8 @@ body {
 
 .navbar {
     background-color: #00b5ad;
-    border-bottom: 1px solid #DDDDDD;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .navbar-nav> li> a {
     color: #FFF !important;
@@ -116,7 +121,6 @@ body {
 /* login form */
 
 .login-form {
-    border-radius: 5px;
     background: #FFF;
     padding: 20px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -127,7 +131,6 @@ body {
     background: #FFF;
     height: 60px;
     line-height: 60px;
-    border-radius: 4px;
 }
 .frm-buttons {
     padding: 0px 15px;
@@ -157,6 +160,15 @@ body {
     color: #ffffff;
     text-shadow: none;
 }
+.ui.amber.text {
+    color: #ffc107;
+}
+
+/* container */
+
+app> .container {
+    padding-bottom: 60px;
+}
 
 /* cards */
 
@@ -168,7 +180,6 @@ body {
     margin: 0px 1% 0px 0px;
 }
 .card {
-    border-radius: 5px;
     background: #FFF;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     height: 85px;
@@ -197,6 +208,9 @@ body {
     float: left;
     margin-right: 20px;
 }
+.card-content> div> .ico {
+    font-size: 30px
+}
 
 /* users */
 
@@ -205,8 +219,71 @@ section.users> div> h2> button {
     min-width: 75px;
 }
 
-/* other */
+/* footer */
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color: #FFF;
+}
+.footer> .container {
+    padding: 15px;
+}
+.footer> .container> span> a, .footer> .container> span> a:hover, .footer> .container> span> a:visited {
+    color: #FFF;
+}
+
+/* override */
+
+.btn, .input-group-addon, input {
+    border-radius: 0px;
+}
 .pagination>li>a {
     margin-right: 5px;
+}
+.form-control:focus {
+    border-color: #00b5ad;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 181, 173, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 181, 173, .6);
+}
+
+/* checkbox */
+
+input[type=checkbox].css-checkbox {
+    display: none;
+}
+input[type=checkbox].css-checkbox+ label.css-label {
+    padding-left: 30px;
+    height: 22px;
+    display: inline-block;
+    line-height: 22px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    font-weight: normal;
+}
+input[type=checkbox].css-checkbox:checked+ label.css-label {
+    background-position: 0 -22px;
+}
+.css-label {
+    background-image: url('../img/checkbox.png');
+}
+
+/* floating button */
+
+.btn-floating {
+    z-index: 1;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 55px;
+    right: 70px;
+    line-height: 37px;
+    padding: 0;
 }

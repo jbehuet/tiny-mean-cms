@@ -7,5 +7,10 @@
             abstract: true,
             template: '<app />'
         })
+        $stateProvider.state('app.dashboard', {
+            url:'/dashboard',
+            abstract: true,
+            template: '<dashboard />'
+        })
     })
 })(angular.module('app.config'))
