@@ -1,0 +1,5 @@
+<div class="text-center card">
+    <div class="icon ui teal bg"><i class="fa fa-code"></i></div>
+    <h4 ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.ngModel.title">{{$ctrl.ngModel.title}}</h4>
+    <p ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.ngModel.content">{{$ctrl.ngModel.content}}</p>
+</div>

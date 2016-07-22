@@ -1,82 +1,84 @@
 <section class="users">
-    <a class="btn ui amber btn-floating" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
-    <div class="row">
-        <h2 class="ui teal header">
-          Liste des utilisateurs ({{$ctrl.users.length}})
-           <button class="btn ui teal pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> Add</button>
-        </h2>
-    </div>
-    <div class="cards row">
-        <div class="card col-xs-3" ng-repeat="user in $ctrl.users | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedUser == user}" ng-click="$ctrl.selectedUser = user">
-            <button class="btn ui red col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, user)"> <i class="fa fa-trash"></i></button>
-            <div class="row card-content">
-                <div class="col-xs-3">
-                    <gravatar email="{{user.email}}" size="45" class="circle"></gravatar>
-                </div>
-                <div class="col-xs-9">
-                    <div>{{(user.firstname || '?') + ' ' + user.lastname}}</div>
-                    <span class="label ui teal bg">{{user.isAdmin ? 'Administrator' : 'Utilisator'}}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <ul class="pagination">
-            <li ng-if="$ctrl.startIndex >= 4"><a class="ui teal btn" ng-click="$ctrl.startIndex = $ctrl.startIndex - 4"><i class="fa fa-chevron-left"></i></a></li>
-            <li ng-if="$ctrl.startIndex < $ctrl.users.length - 4"><a class="ui teal btn" ng-click="$ctrl.startIndex = $ctrl.startIndex + 4"><i class="fa fa-chevron-right"></i></a></li>
-        </ul>
-    </div>
-    <div class="row" ng-if="$ctrl.selectedUser">
-        <h4 class="ui teal header">Edit</h4>
-        <form name="formUser" class="login-form">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-user"></i>
-                            </span>
-                            <input type="text" class="form-control" id="inputFirstname" placeholder="Firstname" ng-model="$ctrl.selectedUser.firstname">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-envelope"></i>
-                            </span>
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="$ctrl.selectedUser.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                          <input id="boxAdmin" class="css-checkbox" type="checkbox" ng-model="$ctrl.selectedUser.isAdmin" />
-                          <label for="boxAdmin" class="css-label">Administrator</label>
-                            <!-- <input type="checkbox" ng-model="$ctrl.selectedUser.isAdmin"> Administrator -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-user"></i>
-                            </span>
-                            <input type="text" class="form-control" id="inputLastname" placeholder="Lastname" ng-model="$ctrl.selectedUser.lastname">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-asterisk"></i>
-                            </span>
-                            <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="Password" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
-                        </div>
-                    </div>
-                    <div class="form-group row frm-buttons">
-                        <button type="submit" class="btn ui teal col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> Save</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+    <div class="container">
+      <a class="btn ui amber btn-floating bottom" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
+      <div class="row">
+          <h2>
+            Liste des utilisateurs ({{$ctrl.users.length}})
+             <button class="btn ui teal pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> Add</button>
+          </h2>
+      </div>
+      <div class="cards row">
+          <div class="card hover col-xs-3" ng-repeat="user in $ctrl.users | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedUser == user}" ng-click="$ctrl.selectedUser = user">
+              <button class="btn ui red col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, user)"> <i class="fa fa-trash"></i></button>
+              <div class="row card-content">
+                  <div class="col-xs-3">
+                      <gravatar email="{{user.email}}" size="45" class="circle"></gravatar>
+                  </div>
+                  <div class="col-xs-9">
+                      <div>{{(user.firstname || '?') + ' ' + user.lastname}}</div>
+                      <span class="label ui teal bg">{{user.isAdmin ? 'Administrator' : 'Utilisator'}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <ul class="pagination">
+              <li ng-if="$ctrl.startIndex >= 4"><a class="ui teal btn" ng-click="$ctrl.startIndex = $ctrl.startIndex - 4"><i class="fa fa-chevron-left"></i></a></li>
+              <li ng-if="$ctrl.startIndex < $ctrl.users.length - 4"><a class="ui teal btn" ng-click="$ctrl.startIndex = $ctrl.startIndex + 4"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+      </div>
+      <div class="row" ng-if="$ctrl.selectedUser">
+          <h4 class="ui teal header">Edit</h4>
+          <form name="formUser" class="login-form">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                              </span>
+                              <input type="text" class="form-control" id="inputFirstname" placeholder="Firstname" ng-model="$ctrl.selectedUser.firstname">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                              </span>
+                              <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="$ctrl.selectedUser.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                            <input id="boxAdmin" class="css-checkbox" type="checkbox" ng-model="$ctrl.selectedUser.isAdmin" />
+                            <label for="boxAdmin" class="css-label">Administrator</label>
+                              <!-- <input type="checkbox" ng-model="$ctrl.selectedUser.isAdmin"> Administrator -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                              </span>
+                              <input type="text" class="form-control" id="inputLastname" placeholder="Lastname" ng-model="$ctrl.selectedUser.lastname">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-asterisk"></i>
+                              </span>
+                              <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="Password" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
+                          </div>
+                      </div>
+                      <div class="form-group row frm-buttons">
+                          <button type="submit" class="btn ui teal col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> Save</button>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
     </div>
 </section>
