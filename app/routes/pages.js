@@ -9,7 +9,7 @@ module.exports = (app) => {
 
 	app.get('/pages', Auth.user.isAdministrator, Page.findAll)
 
-	app.get('/pages/:name', Auth.user.isAdministrator, Page.findByName)
+	app.get('/pages/:name', Page.findByName)
 
 	app.post('/pages', Auth.user.isAdministrator, Page.create)
 
