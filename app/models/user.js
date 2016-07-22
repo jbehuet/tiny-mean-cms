@@ -22,6 +22,8 @@ let model = mongoose.model('User', new mongoose.Schema({
         type: Boolean,
         default: false
     }
+}, {
+    timestamps: true
 }))
 
 class User {
@@ -60,7 +62,7 @@ class User {
             if (err)
                 next(err)
             else
-                res.json(users);
+                res.json(users)
         })
     }
 
@@ -68,17 +70,17 @@ class User {
         model.findById(req.params.id, {
             password: 0
         }, (err, user) => {
-          if (err)
-              next(err)
-          else
-            res.json(user);
+            if (err)
+                next(err)
+            else
+                res.json(user)
         })
     }
 
     create(req, res, next) {
         model.create(req.body, (err, user) => {
             if (!err)
-                res.json(user);
+                res.json(user)
             else {
                 if (err.code === 11000 || err.code === 11001)
                     err.message = req.body.email + " already use"

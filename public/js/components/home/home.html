@@ -1,21 +1,21 @@
 <section>
     <div class="intro">
         <div class="container text-center">
-            <h1 class="intro-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.title">{{$ctrl.title}}</h1>
-            <p class="sub-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.subtitle">{{$ctrl.subtitle}}</p>
+            <h1 class="intro-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.title">{{$ctrl.page.content.title}}</h1>
+            <p class="sub-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.subtitle">{{$ctrl.page.content.subtitle}}</p>
         </div>
     </div>
     <div class="container">
         <div class="row concepts">
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.concept1" />
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.concept2" />
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.concept3" />
+            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept1" />
+            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept2" />
+            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept3" />
         </div>
         <hr />
         <div class="row">
           <div class="col-sm-6">
-              <h3 ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.title">{{$ctrl.title}}</h3>
-              <p ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.content">{{$ctrl.content}}</p>
+              <h3 ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.section1.title">{{$ctrl.page.section1.title}}</h3>
+              <p ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.section1.content">{{$ctrl.page.section1.content}}</p>
           </div>
           <div class="col-sm-6">
             <img src="assets/img/showcase.png" class="img-responsive" alt="">
