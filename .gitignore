@@ -4,4 +4,5 @@ npm-debug.log*
 .jshintrc
 .jshintignore
 /public/
-!/public/.keep
+
+!.keep
