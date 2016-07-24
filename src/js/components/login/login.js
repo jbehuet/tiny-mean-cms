@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("login", {
-        templateUrl: '/js/components/login/login.html',
+        templateUrl: 'js/components/login/login.html',
         controller(UserService, $state) {
             angular.extend(this,{
                 connect() {

@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("home", {
-        templateUrl: '/js/components/home/home.html',
+        templateUrl: 'js/components/home/home.html',
         controller(UserService, PageService, $state) {
             angular.extend(this, {
                 editMode: false,

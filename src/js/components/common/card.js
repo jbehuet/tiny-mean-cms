@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("card", {
-        templateUrl: '/js/components/common/card.html',
+        templateUrl: 'js/components/common/card.html',
         bindings: {
             ngModel: '=',
             editMode: '<'

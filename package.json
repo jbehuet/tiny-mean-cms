@@ -16,5 +16,13 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "angularjs-templates-brunch": "^1.0.0",
+    "auto-reload-brunch": "^2.7.1",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.6.1",
+    "javascript-brunch": "^2.0.0",
+    "uglify-js-brunch": "^2.0.1"
   }
 }

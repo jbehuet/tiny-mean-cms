@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("summary", {
-        templateUrl: '/js/components/dashboard/summary/summary.html',
+        templateUrl: 'js/components/dashboard/summary/summary.html',
         controller($state) {
             angular.extend(this,{
               goTo(state){

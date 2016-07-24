@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
     app.component("navbar", {
-        templateUrl: '/js/components/common/navbar.html',
+        templateUrl: 'js/components/common/navbar.html',
         bindings: {
             user: '<'
         },
