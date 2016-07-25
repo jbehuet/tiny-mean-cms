@@ -1,23 +1,21 @@
 {
-  "name": "mean-starter",
+  "name": "mean-starter-es6",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
   "author": "Jerome BEHUET",
   "license": "ISC",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "brunch build",
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.7.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.6",
-    "morgan": "^1.6.1"
-  },
-  "devDependencies": {
+    "morgan": "^1.6.1",
     "angularjs-templates-brunch": "^1.0.0",
     "auto-reload-brunch": "^2.7.1",
     "clean-css-brunch": "^2.0.0",
