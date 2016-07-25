@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
-    app.config(($httpProvider) => {
-        $httpProvider.interceptors.push(($q, $injector, $cookies) => {
+    app.config(['$httpProvider', ($httpProvider) => {
+        $httpProvider.interceptors.push(['$q', '$injector', '$cookies', ($q, $injector, $cookies) => {
             return {
                 request(config) {
                     config.headers = config.headers || {};
@@ -16,6 +16,6 @@
                     return $q.reject(response)
                 }
             }
-        })
-    })
+        }])
+    }])
 })(angular.module('app.config'))

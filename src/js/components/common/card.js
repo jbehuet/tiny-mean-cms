@@ -6,9 +6,8 @@
             ngModel: '=',
             editMode: '<'
         },
-        controller() {
-            angular.extend(this, {
-            })
-        }
+        controller: [function() {
+            angular.extend(this,{})
+        }]
     })
 })(angular.module('app.common'))

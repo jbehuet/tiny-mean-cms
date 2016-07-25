@@ -1,6 +1,6 @@
 ((app) => {
     'use strict'
-    app.service('UserService', class UserService {
+    app.service('UserService', ['$http', '$cookies', '$window', '$q', class UserService {
 
         constructor($http, $cookies, $window, $q) {
             this.$http = $http
@@ -67,5 +67,5 @@
             return deferred.promise
         }
 
-    })
+    }])
 })(angular.module('app.services'))

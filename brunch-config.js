@@ -7,16 +7,10 @@ exports.config = {
     files: {
         javascripts: {
             joinTo: {
-                'js/vendor.min.js': /^src\/vendor/,
                 'js/app.min.js': /^src\/js/
             },
             order: {
                 before: [
-                    'src/vendor/angular.min.js',
-                    'src/vendor/angular-cookies.min.js',
-                    'angular-sanitize.min.js',
-                    'src/vendor/angular-ui-router.min.js',
-                    'src/vendor/md5.min.js',
                     'src/js/app.js',
                     'src/js/**/*.md.js',
                     'src/js/components/**/*.js'
@@ -55,5 +49,16 @@ exports.config = {
             path_transform: (path) => path.replace('src/', '')
         }
         /*jshint +W106 */
+    },
+    overrides:{
+      production:{
+        sourceMaps: false,
+        plugins: {autoReload: {enabled: false}}
+      }
+    },
+    server:{
+      path: 'server.js',
+      port: 8000,
+      run: true
     }
 }

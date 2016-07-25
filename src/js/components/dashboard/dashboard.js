@@ -2,7 +2,7 @@
     'use strict'
     app.component('dashboard', {
         template: '<ui-view />',
-        controller(UserService, $state){
+        controller:['UserService', '$state', function(UserService, $state){
           angular.extend(this, {
               $onInit(){
                 UserService.getCurrent().then((user) => {
@@ -13,6 +13,6 @@
                 })
               }
           })
-        }
+        }]
     })
 })(angular.module('app.dashboard'))

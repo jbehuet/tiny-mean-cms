@@ -14,6 +14,7 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 ### Requirements
 * NodeJS
 * MongoDB
+* Brunch
 * Nodemon (debug)
 
 ### Installation

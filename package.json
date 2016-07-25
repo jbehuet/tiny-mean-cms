@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "author": "Jerome BEHUET",
-  "license": "ISC",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
-    "postinstall": "brunch build",
-    "start": "node server.js"
+    "postinstall": "brunch build --production",
+    "start": "node mean-starter-es6.js"
   },
   "dependencies": {
     "angularjs-templates-brunch": "^1.0.0",
     "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.0.4",
     "body-parser": "^1.14.1",
     "brunch": "^2.8.2",
     "clean-css-brunch": "^2.0.0",

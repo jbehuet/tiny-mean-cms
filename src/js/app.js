@@ -39,7 +39,7 @@
         }
     }
 
-    const contenteditable = ($sanitize) => {
+    const contenteditable = ['$sanitize', ($sanitize) => {
         return {
             require: 'ngModel',
             link(scope, element, attrs, ctrl) {
@@ -59,7 +59,7 @@
                 ctrl.$render()
             }
         }
-    }
+    }]
 
     app.directive('checkPassword', checkPassword)
     app.directive('gravatar', gravatar)
@@ -79,5 +79,5 @@
     'app.about',
     'app.dashboard',
     'app.dashboard.summary',
-    'app.dashboard.users',
+    'app.dashboard.users'
 ]))

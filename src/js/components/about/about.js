@@ -2,8 +2,8 @@
     'use strict'
     app.component("about", {
         templateUrl: 'js/components/about/about.html',
-        controller() {
+        controller: [function() {
             angular.extend(this,{})
-        }
+        }]
     })
 })(angular.module('app.login'))

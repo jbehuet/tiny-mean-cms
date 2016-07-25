@@ -2,7 +2,7 @@
     'use strict'
     app.component("users", {
         templateUrl: 'js/components/dashboard/usersList/usersList.html',
-        controller(UserService) {
+        controller: ['UserService', function(UserService) {
             angular.extend(this, {
                 $onInit() {
                     this.startIndex = 0
@@ -43,6 +43,6 @@
 
                 }
             })
-        }
+        }]
     })
 })(angular.module('app.dashboard.users'))

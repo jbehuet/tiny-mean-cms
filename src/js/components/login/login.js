@@ -2,7 +2,7 @@
     'use strict'
     app.component("login", {
         templateUrl: 'js/components/login/login.html',
-        controller(UserService, $state) {
+        controller:['UserService', '$state', function(UserService, $state) {
             angular.extend(this,{
                 connect() {
                     UserService.connect(this.user).then((res) => {
@@ -13,6 +13,6 @@
                     });
                 }
             })
-        }
+        }]
     })
 })(angular.module('app.login'))

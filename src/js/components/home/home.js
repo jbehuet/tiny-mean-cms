@@ -2,7 +2,7 @@
     'use strict'
     app.component("home", {
         templateUrl: 'js/components/home/home.html',
-        controller(UserService, PageService, $state) {
+        controller: ['UserService', 'PageService', '$state', function(UserService, PageService, $state) {
             angular.extend(this, {
                 editMode: false,
                 cancel(){
@@ -34,6 +34,6 @@
 
                 }
             })
-        }
+        }]
     })
 })(angular.module('app.login'))

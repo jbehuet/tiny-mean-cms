@@ -1,9 +1,9 @@
 ((app) => {
     'use strict'
-    app.config(($stateProvider) => {
+    app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.about', {
             url:'/about',
             template: '<about />'
         })
-    })
+    }])
 })(angular.module('app.about', ['ui.router']))

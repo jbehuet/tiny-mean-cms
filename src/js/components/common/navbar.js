@@ -5,7 +5,7 @@
         bindings: {
             user: '<'
         },
-        controller(UserService, $state) {
+        controller: ['UserService', '$state', function(UserService, $state) {
             angular.extend(this, {
                 logout() {
                     this.user = null
@@ -14,6 +14,6 @@
                     })
                 }
             })
-        }
+        }]
     })
 })(angular.module('app.common'))

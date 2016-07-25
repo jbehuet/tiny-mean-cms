@@ -1,6 +1,6 @@
 ((app) => {
     'use strict'
-    app.service('PageService', class PageService {
+    app.service('PageService', ['$http', class PageService {
 
         constructor($http) {
             this.$http = $http
@@ -26,5 +26,5 @@
             return this.$http.delete('/api/pages/' + page._id)
         }
 
-    })
+    }])
 })(angular.module('app.services'))
