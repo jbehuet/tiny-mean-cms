@@ -7,7 +7,9 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "brunch build --production",
-    "start": "node mean-starter-es6.js"
+    "prestart": "brunch build --production",
+    "start": "node mean-starter-es6.js",
+    "dev": "brunch watch --server"
   },
   "dependencies": {
     "angularjs-templates-brunch": "^1.0.0",
