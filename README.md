@@ -3,8 +3,8 @@
 Project sample for [MEAN stack](http://mean.io/#!/)
 
 ### Previews
-| Home   |      Edition      |  Dashoard |
-|----------|:-------------:|------:|
+| Home   |      Edition      | Dashoard |
+|:----------:|:-------------:|:------:|
 | <img src="http://jbehuet.fr/files/screens/mean-starter/001.png" width="400px" />   |  <img src="http://jbehuet.fr/files/screens/mean-starter/002.png" width="400px" />   | <img src="http://jbehuet.fr/files/screens/mean-starter/003.png" width="400px" /> |
 
 [Show demo](http://mean-starter-sample.herokuapp.com/#/)
