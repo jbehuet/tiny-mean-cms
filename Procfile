@@ -1,1 +1,1 @@
-web: npm start
+web: node mean-starter-es6
