@@ -1,3 +1,4 @@
+'use strict'
 exports.config = {
     paths: {
         watched: ['src'],
@@ -13,6 +14,7 @@ exports.config = {
                 before: [
                     'src/vendor/angular.min.js',
                     'src/vendor/angular-cookies.min.js',
+                    'angular-sanitize.min.js',
                     'src/vendor/angular-ui-router.min.js',
                     'src/vendor/md5.min.js',
                     'src/js/app.js',
@@ -41,13 +43,16 @@ exports.config = {
         definition: false
     },
     plugins: {
+        autoReload: {
+            enabled: {
+                css: 'on',
+                js: 'on'
+            }
+        },
         /*jshint -W106 */
         angular_templates: {
             module: 'app.views',
-            path_transform: function(path){
-              'use strict'
-              return path.replace('src/', '')
-            }
+            path_transform: (path) => path.replace('src/', '')
         }
         /*jshint +W106 */
     }

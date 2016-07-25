@@ -39,7 +39,7 @@
         }
     }
 
-    const contenteditable = () => {
+    const contenteditable = ($sanitize) => {
         return {
             require: 'ngModel',
             link(scope, element, attrs, ctrl) {
@@ -52,7 +52,7 @@
 
                 // model -> view
                 ctrl.$render = () => {
-                    element.html(ctrl.$viewValue)
+                    element.html($sanitize(ctrl.$viewValue || ''))
                 }
 
                 // load init value from DOM
@@ -69,6 +69,7 @@
 })(angular.module('app', [
     'ui.router',
     'ngCookies',
+    'ngSanitize',
     'app.views',
     'app.config',
     'app.services',
