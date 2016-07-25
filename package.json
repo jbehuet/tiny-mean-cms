@@ -10,17 +10,18 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "angularjs-templates-brunch": "^1.0.0",
+    "auto-reload-brunch": "^2.7.1",
     "body-parser": "^1.14.1",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.6.1",
     "express": "^4.13.3",
+    "javascript-brunch": "^2.0.0",
     "jsonwebtoken": "^5.7.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1",
-    "angularjs-templates-brunch": "^1.0.0",
-    "auto-reload-brunch": "^2.7.1",
-    "clean-css-brunch": "^2.0.0",
-    "css-brunch": "^2.6.1",
-    "javascript-brunch": "^2.0.0",
     "uglify-js-brunch": "^2.0.1"
   }
 }
