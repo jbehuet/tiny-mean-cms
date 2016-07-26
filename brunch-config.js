@@ -7,10 +7,16 @@ exports.config = {
     files: {
         javascripts: {
             joinTo: {
+                'js/vendor.min.js': /^src\/vendor/,
                 'js/app.min.js': /^src\/js/
             },
             order: {
                 before: [
+                    'src/vendor/angular.js',
+                    'src/vendor/angular-cookies.js',
+                    'src/vendor/angular-sanitize.js',
+                    'src/vendor/angular-ui-router.js',
+                    // 'src/vendor/md5.js',
                     'src/js/app.js',
                     'src/js/**/*.md.js',
                     'src/js/components/**/*.js'
@@ -50,15 +56,19 @@ exports.config = {
         }
         /*jshint +W106 */
     },
-    overrides:{
-      production:{
-        sourceMaps: false,
-        plugins: {autoReload: {enabled: false}}
-      }
+    overrides: {
+        production: {
+            sourceMaps: false,
+            plugins: {
+                autoReload: {
+                    enabled: false
+                }
+            }
+        }
     },
-    server:{
-      path: 'server.js',
-      port: 8000,
-      run: true
+    server: {
+        path: 'server.js',
+        port: 8000,
+        run: true
     }
 }
