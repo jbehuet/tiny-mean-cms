@@ -1,8 +1,8 @@
 <section>
     <div class="intro">
         <div class="container text-center">
-            <h1 class="intro-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.title">{{$ctrl.page.content.title}}</h1>
-            <p class="sub-title ui amber text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.subtitle">{{$ctrl.page.content.subtitle}}</p>
+            <h1 class="intro-title text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.title">{{$ctrl.page.content.title}}</h1>
+            <p class="subtitle text" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.subtitle">{{$ctrl.page.content.subtitle}}</p>
         </div>
     </div>
     <div class="container">
@@ -21,8 +21,8 @@
             <img src="img/showcase.png" class="img-responsive" alt="">
           </div>
         </div>
-        <a class="btn ui red btn-floating cancel top" ng-if="$ctrl.editMode" ng-click="$ctrl.cancel()"><i class="fa fa-close"></i></a>
-        <a class="btn ui green btn-floating top" ng-if="$ctrl.editMode" ng-click="$ctrl.save()"><i class="fa fa-check"></i></a>
-        <a class="btn ui amber btn-floating top" ng-if="(!$ctrl.editMode && $ctrl.user && $ctrl.user.isAdmin)" ng-click="$ctrl.editMode = true"><i class="fa fa-pencil"></i></a>
+        <button class="btn danger btn-floating cancel top" ng-if="$ctrl.editMode" ng-click="$ctrl.cancel()"><i class="fa fa-close"></i></button>
+        <button class="btn success btn-floating top" ng-if="$ctrl.editMode" ng-click="$ctrl.save()"><i class="fa fa-check"></i></button>
+        <button class="btn warning btn-floating top" ng-if="(!$ctrl.editMode && $ctrl.user && $ctrl.user.isAdmin)" ng-click="$ctrl.editMode = true"><i class="fa fa-pencil"></i></button>
     </div>
 </section>

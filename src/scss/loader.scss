@@ -1,5 +1,5 @@
+@import 'colors';
 /* loader */
-
 .ng-cloak.cs-loader {
     display: block !important;
 }
@@ -16,7 +16,7 @@
     top: 50%;
     position: absolute;
     width: 100%;
-    color: #00b5ad;
+    color: $primary;
     padding: 0 100px;
     text-align: center;
 }

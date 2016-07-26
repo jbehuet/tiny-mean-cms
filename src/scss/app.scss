@@ -1,0 +1,22 @@
+@import 'colors';
+/* container */
+app > .container {
+    padding-bottom: 60px;
+}
+/* footer */
+.footer {
+    background-color: $primary;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color: $white;
+}
+.footer > .container {
+    padding: 15px;
+}
+.footer > .container > span > a,
+.footer > .container > span > a:hover,
+.footer > .container > span > a:visited {
+    color: $white;
+}

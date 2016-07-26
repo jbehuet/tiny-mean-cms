@@ -1,0 +1,24 @@
+@import 'colors';
+
+/* intro */
+
+.intro {
+    background-image: url('../img/intro.jpg');
+    background-position: bottom;
+    background-size: cover;
+    min-height: 245px;
+    margin-bottom: 10px;
+}
+.intro-title {
+    margin-top: 25px;
+    color:$secondary;
+}
+.subtitle{
+  color:$secondary;
+}
+
+/* concepts */
+
+.concepts {
+    margin-top: 20px;
+}
