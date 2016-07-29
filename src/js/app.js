@@ -39,28 +39,6 @@
         }
     }]
 
-    const contenteditable = ['$sanitize', ($sanitize) => {
-        return {
-            require: 'ngModel',
-            link(scope, element, attrs, ctrl) {
-                // view -> model
-                element.bind('blur', () => {
-                    scope.$apply(() => {
-                        ctrl.$setViewValue(element.html())
-                    })
-                })
-
-                // model -> view
-                ctrl.$render = () => {
-                    element.html($sanitize(ctrl.$viewValue ||  ''))
-                }
-
-                // load init value from DOM
-                ctrl.$render()
-            }
-        }
-    }]
-
     app.directive('checkPassword', checkPassword)
     app.directive('gravatar', gravatar)
     app.run()
