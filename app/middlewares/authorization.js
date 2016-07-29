@@ -23,7 +23,7 @@ exports.user = {
     isAdministrator(req, res, next) {
         if (req.headers.authorization) {
             jwt.verify(req.headers.authorization, ENV.token, (err, decoded) => {
-                if (decoded._doc && decoded._doc.isAdmin)
+                if (!err && decoded._doc && decoded._doc.isAdmin)
                     next()
                 else
                     return res.sendStatus(403)
