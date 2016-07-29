@@ -26,7 +26,7 @@
             required: 'email',
             template: '<img ng-src="https://www.gravatar.com/avatar/{{hash}}?s={{size}}&d=identicon" />',
             link(scope, element, attrs) {
-                attrs.$observe('email', function(value) {
+                attrs.$observe('email', (value) => {
                     if (!value) return
 
                     scope.hash = md5.createHash(value.toLowerCase())
@@ -52,7 +52,7 @@
 
                 // model -> view
                 ctrl.$render = () => {
-                    element.html($sanitize(ctrl.$viewValue || ''))
+                    element.html($sanitize(ctrl.$viewValue ||  ''))
                 }
 
                 // load init value from DOM
@@ -63,7 +63,6 @@
 
     app.directive('checkPassword', checkPassword)
     app.directive('gravatar', gravatar)
-    app.directive('contenteditable', contenteditable)
     app.run()
 
 })(angular.module('app', [
@@ -71,6 +70,7 @@
     'ngCookies',
     'ngSanitize',
     'angular-md5',
+    'InlineTextEditor',
     'app.views',
     'app.config',
     'app.services',

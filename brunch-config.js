@@ -11,11 +11,13 @@ exports.config = {
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/toastr/toastr.js',
+                    'bower_components/rangy/*.js',
                     'bower_components/angular/angular.js',
                     'bower_components/angular-cookies/angular-cookies.js',
                     'bower_components/angular-sanitize/angular-sanitize.js',
                     'bower_components/angular-ui-router/release/angular-ui-router.js',
-                    'bower_components/angular-md5/angular-md5.js'
+                    'bower_components/angular-md5/angular-md5.js',
+                    'bower_components/angular-inline-text-editor/ite.js'
                 ],
                 'js/app.min.js': /^src\/js/
             },
@@ -57,7 +59,7 @@ exports.config = {
             }
         },
         copycat: {
-            "css": ["bower_components/bootstrap/dist/css/bootstrap.min.css", "bower_components/bootstrap/dist/css/bootstrap.min.css.map"],
+            "css": ["bower_components/bootstrap/dist/css/bootstrap.min.css", "bower_components/bootstrap/dist/css/bootstrap.min.css.map", "bower_components/angular-inline-text-editor/ite.css"],
             "fonts": "bower_components/font-awesome/fonts",
             verbose: true,
             onlyChanged: true

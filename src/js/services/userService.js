@@ -57,9 +57,8 @@
                     payload = this.$window.atob(payload)
                     payload = JSON.parse(payload)
                     this.currentUser = payload._doc
-                        // TODO
-                        // Check token expiration
-                        //if (Math.round(new Date().getTime() / 1000) <= payload.exp) {
+                    if (Math.round(new Date().getTime() / 1000) > payload.exp)
+                        return this.disconnect()
                 }
                 deferred.resolve(this.currentUser)
             }
