@@ -13,6 +13,7 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 * [NodeJS](https://nodejs.org/en/)
 * [MongoDB](https://www.mongodb.com/)
 * [Brunch](http://brunch.io/)
+* [Bower](https://bower.io/)
 
 ### Installation
 
@@ -20,6 +21,7 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 git clone https://github.com/jbehuet/mean-starter-es6.git   
 cd mean-starter-es6
 npm i
+bower i
 ```
 
 ### Development

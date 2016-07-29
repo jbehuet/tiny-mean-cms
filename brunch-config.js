@@ -7,16 +7,20 @@ exports.config = {
     files: {
         javascripts: {
             joinTo: {
-                'js/vendor.min.js': /^src\/vendor/,
+                'js/vendor.min.js': [
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/bootstrap/dist/js/bootstrap.js',
+                    'bower_components/toastr/toastr.js',
+                    'bower_components/angular/angular.js',
+                    'bower_components/angular-cookies/angular-cookies.js',
+                    'bower_components/angular-sanitize/angular-sanitize.js',
+                    'bower_components/angular-ui-router/release/angular-ui-router.js',
+                    'bower_components/angular-md5/angular-md5.js'
+                ],
                 'js/app.min.js': /^src\/js/
             },
             order: {
                 before: [
-                    'src/vendor/angular.js',
-                    'src/vendor/angular-cookies.js',
-                    'src/vendor/angular-sanitize.js',
-                    'src/vendor/angular-ui-router.js',
-                    // 'src/vendor/md5.js',
                     'src/js/app.js',
                     'src/js/**/*.md.js',
                     'src/js/components/**/*.js'
@@ -24,7 +28,10 @@ exports.config = {
             }
         },
         stylesheets: {
-            joinTo: 'css/app.min.css'
+            joinTo: {
+                'css/vendor.min.css': /^bower_components/,
+                'css/app.min.css': /^src\/scss/
+            }
         },
         templates: {
             joinTo: {
@@ -48,6 +55,12 @@ exports.config = {
                 css: 'on',
                 js: 'on'
             }
+        },
+        copycat: {
+            "css": ["bower_components/bootstrap/dist/css/bootstrap.min.css", "bower_components/bootstrap/dist/css/bootstrap.min.css.map"],
+            "fonts": "bower_components/font-awesome/fonts",
+            verbose: true,
+            onlyChanged: true
         },
         /*jshint -W106 */
         angular_templates: {

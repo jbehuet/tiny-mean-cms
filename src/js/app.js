@@ -20,7 +20,7 @@
         }
     }
 
-    const gravatar = () => {
+    const gravatar = ['md5', (md5) => {
         return {
             replace: true,
             required: 'email',
@@ -29,7 +29,7 @@
                 attrs.$observe('email', function(value) {
                     if (!value) return
 
-                    scope.hash = md5(value.toLowerCase())
+                    scope.hash = md5.createHash(value.toLowerCase())
                     scope.size = attrs.size
 
                     if (angular.isUndefined(scope.size))
@@ -37,7 +37,7 @@
                 })
             }
         }
-    }
+    }]
 
     const contenteditable = ['$sanitize', ($sanitize) => {
         return {
@@ -70,6 +70,7 @@
     'ui.router',
     'ngCookies',
     'ngSanitize',
+    'angular-md5',
     'app.views',
     'app.config',
     'app.services',
