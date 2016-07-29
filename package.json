@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "server.js",
   "scripts": {
-    "postinstall": "brunch build --production",
+    "postinstall": "bower install && brunch build --production",
     "prestart": "brunch build --production",
     "start": "node mean-starter-es6.js",
     "dev": "brunch watch --server"
@@ -16,6 +16,7 @@
     "auto-reload-brunch": "^2.7.1",
     "babel-brunch": "^6.0.4",
     "body-parser": "^1.14.1",
+    "bower": "^1.7.9",
     "brunch": "^2.8.2",
     "clean-css-brunch": "^2.0.0",
     "copycat-brunch": "^1.1.0",
