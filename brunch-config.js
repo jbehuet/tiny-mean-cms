@@ -17,7 +17,9 @@ exports.config = {
                     'bower_components/angular-sanitize/angular-sanitize.js',
                     'bower_components/angular-ui-router/release/angular-ui-router.js',
                     'bower_components/angular-md5/angular-md5.js',
-                    'bower_components/angular-inline-text-editor/ite.js'
+                    'bower_components/angular-inline-text-editor/ite.js',
+                    'bower_components/angular-translate/angular-translate.js',
+                    'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
                 ],
                 'js/app.min.js': /^src\/js/
             },
@@ -63,6 +65,12 @@ exports.config = {
             "fonts": "bower_components/font-awesome/fonts",
             verbose: true,
             onlyChanged: true
+        },
+        concatenate: {
+            files: {
+                "public/i18n/en.json": ['src/js/components/common/app.en.json', 'src/js/components/dashboard/summary/summary.en.json', 'src/js/components/dashboard/usersList/usersList.en.json' ],
+                "public/i18n/fr.json": ['src/js/components/common/app.fr.json', 'src/js/components/dashboard/summary/summary.fr.json', 'src/js/components/dashboard/usersList/usersList.fr.json']
+            }
         },
         /*jshint -W106 */
         angular_templates: {

@@ -49,6 +49,7 @@
     'ngSanitize',
     'angular-md5',
     'InlineTextEditor',
+    'pascalprecht.translate',
     'app.views',
     'app.config',
     'app.services',

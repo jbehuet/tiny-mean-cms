@@ -3,8 +3,8 @@
       <a class="btn warning btn-floating bottom" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
       <div class="row">
           <h2>
-            Liste des utilisateurs ({{$ctrl.users.length}})
-             <button class="btn pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> Add</button>
+            {{'USERSLIST_TITLE' | translate}} ({{$ctrl.users.length}})
+             <button class="btn pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> {{'ADD' | translate}}</button>
           </h2>
       </div>
       <div class="cards row">
@@ -16,7 +16,7 @@
                   </div>
                   <div class="col-xs-9">
                       <div>{{(user.firstname || '?') + ' ' + user.lastname}}</div>
-                      <span class="label">{{user.isAdmin ? 'Administrator' : 'Utilisator'}}</span>
+                      <span class="label">{{(user.isAdmin ? 'ADMIN' : 'USER') | translate}}</span>
                   </div>
               </div>
           </div>
@@ -28,7 +28,7 @@
           </ul>
       </div>
       <div class="row" ng-if="$ctrl.selectedUser">
-          <h4 class="header">Edit</h4>
+          <h4 class="header">{{'EDIT' | translate}}</h4>
           <form name="formUser" class="form">
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -62,7 +62,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                         </span>
-                        <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="Password" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
+                        <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="{{'PASSWORD' | translate}}" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
                     </div>
                 </div>
               </div>
@@ -70,12 +70,11 @@
                 <div class="col-md-6 form-group">
                     <div class="input-group">
                       <input id="boxAdmin" class="css-checkbox" type="checkbox" ng-model="$ctrl.selectedUser.isAdmin" />
-                      <label for="boxAdmin" class="css-label">Administrator</label>
-                        <!-- <input type="checkbox" ng-model="$ctrl.selectedUser.isAdmin"> Administrator -->
+                      <label for="boxAdmin" class="css-label">{{'ADMIN' | translate}}</label>
                     </div>
                 </div>
                 <div class="col-md-6 form-group frm-buttons">
-                    <button type="submit" class="btn col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> Save</button>
+                    <button type="submit" class="btn col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> {{'SAVE' | translate}}</button>
                 </div>
             </div>
           </form>
