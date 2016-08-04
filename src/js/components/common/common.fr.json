@@ -1,0 +1,18 @@
+{
+  "COMMON_BY": "par",
+  "COMMON_WELCOME": "Bienvenue",
+  "COMMON_TRY_AGAIN": "Veuillez réessayer...",
+  "COMMON_HOME": "Accueil",
+  "COMMON_ABOUT": "A propos",
+  "COMMON_LOGOUT": "Déconnexion",
+  "COMMON_EDIT": "Editer",
+  "COMMON_SAVE": "Sauvegarder",
+  "COMMON_ADD": "Ajouter",
+  "COMMON_ADMIN" : "Administrateur",
+  "COMMON_USERS": "Utilisateurs",
+  "COMMON_USER" : "Utilisateur",
+  "COMMON_PASSWORD": "Mot de passe",
+  "COMMON_EMAIL": "Email",
+  "COMMON_FIRSTNAME": "Prénom",
+  "COMMON_LASTNAME": "Nom"
+}

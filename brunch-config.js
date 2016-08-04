@@ -57,7 +57,8 @@ exports.config = {
         autoReload: {
             enabled: {
                 css: 'on',
-                js: 'on'
+                js: 'on',
+                json: 'on'
             }
         },
         copycat: {
@@ -68,8 +69,8 @@ exports.config = {
         },
         concatenate: {
             files: {
-                "public/i18n/en.json": ['src/js/components/common/app.en.json', 'src/js/components/dashboard/summary/summary.en.json', 'src/js/components/dashboard/usersList/usersList.en.json' ],
-                "public/i18n/fr.json": ['src/js/components/common/app.fr.json', 'src/js/components/dashboard/summary/summary.fr.json', 'src/js/components/dashboard/usersList/usersList.fr.json']
+                "public/i18n/en.json": ['src/js/components/common/common.en.json', 'src/js/components/dashboard/summary/summary.en.json', 'src/js/components/dashboard/usersList/usersList.en.json', 'src/js/components/login/login.en.json' ],
+                "public/i18n/fr.json": ['src/js/components/common/common.fr.json', 'src/js/components/dashboard/summary/summary.fr.json', 'src/js/components/dashboard/usersList/usersList.fr.json', 'src/js/components/login/login.fr.json']
             }
         },
         /*jshint -W106 */

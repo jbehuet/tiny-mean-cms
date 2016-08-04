@@ -4,7 +4,7 @@
       <div class="row">
           <h2>
             {{'USERSLIST_TITLE' | translate}} ({{$ctrl.users.length}})
-             <button class="btn pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> {{'ADD' | translate}}</button>
+             <button class="btn pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> {{'COMMON_ADD' | translate}}</button>
           </h2>
       </div>
       <div class="cards row">
@@ -16,7 +16,7 @@
                   </div>
                   <div class="col-xs-9">
                       <div>{{(user.firstname || '?') + ' ' + user.lastname}}</div>
-                      <span class="label">{{(user.isAdmin ? 'ADMIN' : 'USER') | translate}}</span>
+                      <span class="label">{{(user.isAdmin ? 'COMMON_ADMIN' : 'COMMON_USER') | translate}}</span>
                   </div>
               </div>
           </div>
@@ -28,7 +28,7 @@
           </ul>
       </div>
       <div class="row" ng-if="$ctrl.selectedUser">
-          <h4 class="header">{{'EDIT' | translate}}</h4>
+          <h4 class="header">{{'COMMON_EDIT' | translate}}</h4>
           <form name="formUser" class="form">
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -36,7 +36,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </span>
-                        <input type="text" class="form-control" id="inputFirstname" placeholder="Firstname" ng-model="$ctrl.selectedUser.firstname">
+                        <input type="text" class="form-control" id="inputFirstname" placeholder="{{'COMMON_FIRSTNAME' | translate}}" ng-model="$ctrl.selectedUser.firstname">
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
@@ -44,7 +44,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </span>
-                        <input type="text" class="form-control" id="inputLastname" placeholder="Lastname" ng-model="$ctrl.selectedUser.lastname">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="{{'COMMON_LASTNAME' | translate}}" ng-model="$ctrl.selectedUser.lastname">
                     </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-envelope"></i>
                         </span>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="$ctrl.selectedUser.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="{{'COMMON_EMAIL' | translate}}" ng-model="$ctrl.selectedUser.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
@@ -62,7 +62,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                         </span>
-                        <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="{{'PASSWORD' | translate}}" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
+                        <input type="password" class="form-control" id="inputPass" name="inputPass" placeholder="{{'COMMON_PASSWORD' | translate}}" ng-model="$ctrl.selectedUser.password" ng-required="!$ctrl.selectedUser._id">
                     </div>
                 </div>
               </div>
@@ -70,11 +70,11 @@
                 <div class="col-md-6 form-group">
                     <div class="input-group">
                       <input id="boxAdmin" class="css-checkbox" type="checkbox" ng-model="$ctrl.selectedUser.isAdmin" />
-                      <label for="boxAdmin" class="css-label">{{'ADMIN' | translate}}</label>
+                      <label for="boxAdmin" class="css-label">{{'COMMON_ADMIN' | translate}}</label>
                     </div>
                 </div>
                 <div class="col-md-6 form-group frm-buttons">
-                    <button type="submit" class="btn col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> {{'SAVE' | translate}}</button>
+                    <button type="submit" class="btn col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formUser.$pristine || formUser.$invalid"><i class="fa fa-save"></i> {{'COMMON_SAVE' | translate}}</button>
                 </div>
             </div>
           </form>

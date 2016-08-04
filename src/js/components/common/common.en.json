@@ -1,0 +1,18 @@
+{
+  "COMMON_BY": "by",
+  "COMMON_WELCOME": "Welcome",
+  "COMMON_TRY_AGAIN": "Please try again...",
+  "COMMON_HOME": "Home",
+  "COMMON_ABOUT": "About",
+  "COMMON_LOGOUT": "Logout",
+  "COMMON_EDIT": "Edit",
+  "COMMON_SAVE": "Save",
+  "COMMON_ADD": "Add",
+  "COMMON_ADMIN" : "Administrator",
+  "COMMON_USERS": "Users",
+  "COMMON_USER" : "User",
+  "COMMON_PASSWORD": "Password",
+  "COMMON_EMAIL": "Email",
+  "COMMON_FIRSTNAME": "Firstname",
+  "COMMON_LASTNAME": "Lastname"
+}
