@@ -23,7 +23,7 @@
     "css-brunch": "^2.6.1",
     "express": "^4.13.3",
     "javascript-brunch": "^2.0.0",
-    "json-concat-brunch": "^1.0.0",
+    "json-concat-brunch": "^1.1.0",
     "jsonwebtoken": "^5.7.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.6",
