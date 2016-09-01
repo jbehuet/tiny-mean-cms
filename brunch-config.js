@@ -61,6 +61,11 @@ exports.config = {
                 json: 'on'
             }
         },
+        babel: {
+            ignore: [
+                /^(bower_components)/
+            ]
+        },
         copycat: {
             "css": ["bower_components/bootstrap/dist/css/bootstrap.min.css", "bower_components/bootstrap/dist/css/bootstrap.min.css.map", "bower_components/angular-inline-text-editor/ite.css"],
             "fonts": "bower_components/font-awesome/fonts",
