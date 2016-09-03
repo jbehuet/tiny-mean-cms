@@ -36,4 +36,4 @@
             })
         }]
     })
-})(angular.module('app.login'))
+})(angular.module('app.home'))
