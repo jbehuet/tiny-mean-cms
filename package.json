@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "server.js",
   "scripts": {
+    "install": "node install.js",
     "postinstall": "bower install && brunch build --production",
     "prestart": "brunch build --production",
     "start": "node mean-starter-es6.js",

@@ -1,13 +1,13 @@
-# MEAN-STARTER ES6
+# TINY-MEAN-CMS
 
-Project sample for [MEAN stack](http://mean.io/#!/)
+CMS Project with [MEAN stack](http://mean.io/#!/)
 
 ### Previews
 | Home   |      Edition      | Dashboard |
 |:----------:|:-------------:|:------:|
 | <img src="http://jbehuet.fr/files/screens/mean-starter/001.png" width="400px" />   |  <img src="http://jbehuet.fr/files/screens/mean-starter/002.png" width="400px" />   | <img src="http://jbehuet.fr/files/screens/mean-starter/003.png" width="400px" /> |
 
-[Show demo](http://mean-starter-sample.herokuapp.com/#/)
+[Show demo](http://tiny-mean-cms.herokuapp.com/#/)
 
 ### Prerequisites
 * [NodeJS](https://nodejs.org/en/)
@@ -18,11 +18,14 @@ Project sample for [MEAN stack](http://mean.io/#!/)
 ### Installation
 
 ```bash
-git clone https://github.com/jbehuet/mean-starter-es6.git   
-cd mean-starter-es6
+git clone https://github.com/jbehuet/tiny-mean-cms.git   
+cd tiny-mean-cms
 npm i
-bower i
 ```
+
+__Default account__
+> Email : admin@domain.ext  
+> Password : admin
 
 ### Development
 
