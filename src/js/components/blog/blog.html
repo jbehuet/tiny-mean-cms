@@ -1,0 +1,14 @@
+<section>
+    <div class="container">
+        <div class="row" ng-class="{'first-post' : $index == 0}" ng-repeat="post in $ctrl.posts">
+            <div class="col-lg-8">
+              <div>
+                <h1>{{post.title}}</h1>
+                <h6><em>{{'BLOG_DATE' | translate}} {{post.createdAt | date:'dd/MM/yyyy' }}</em></h6>
+              </div>
+              {{post.content}}
+              <hr />
+            </div>
+        </div>
+    </div>
+</section>

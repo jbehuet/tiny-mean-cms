@@ -56,6 +56,7 @@
     'app.common',
     'app.login',
     'app.home',
+    'app.blog',
     'app.about',
     'app.dashboard',
     'app.dashboard.summary',

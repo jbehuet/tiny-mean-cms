@@ -11,6 +11,7 @@
         </div>
         <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="selected"><a ui-sref="app.blog">{{'COMMON_BLOG' | translate}}</a></li>
                 <li ui-sref-active="selected"><a ui-sref="app.about">{{'COMMON_ABOUT' | translate}}</a></li>
                 <li ng-if="!$ctrl.user"><a ui-sref="login"><i class="fa fa-sign-in"></i></a></li>
                 <li class="dropdown" ng-if="$ctrl.user">
