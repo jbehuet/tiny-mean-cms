@@ -6,7 +6,6 @@
             angular.extend(this, {
                 $onInit() {
                     PostService.getAll().then((res) => {
-                        debugger
                         this.posts = res.data
                     })
                 }

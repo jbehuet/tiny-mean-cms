@@ -60,5 +60,6 @@
     'app.about',
     'app.dashboard',
     'app.dashboard.summary',
-    'app.dashboard.users'
+    'app.dashboard.users',
+    'app.dashboard.posts'
 ]))

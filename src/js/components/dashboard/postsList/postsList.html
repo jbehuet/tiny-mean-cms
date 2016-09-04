@@ -1,0 +1,67 @@
+<section class="edit">
+    <div class="container">
+      <a class="btn warning btn-floating bottom" ui-sref="app.dashboard.summary"><i class="fa fa-mail-reply"></i></a>
+      <div class="row">
+          <h2>
+            {{'POSTSLIST_TITLE' | translate}} ({{$ctrl.posts.length}})
+             <button class="btn pull-right" ng-click="$ctrl.add()"><i class="fa fa-plus"></i> {{'COMMON_ADD' | translate}}</button>
+          </h2>
+      </div>
+      <div class="cards row">
+          <div class="card hover col-xs-3" ng-repeat="post in $ctrl.posts | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedPost == post}" ng-click="$ctrl.selectedPost = post">
+              <button class="btn danger col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, post)"> <i class="fa fa-trash"></i></button>
+              <div class="row card-content">
+                  <div class="col-xs-3">
+                      <span class="ico"><i class="fa fa-file-o "></i></span>
+                  </div>
+                  <div class="col-xs-9">
+                      <div>{{post.title}}</div>
+                      <span class="label">{{post.createdAt | date:'dd/MM/yyyy' }}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <ul class="pagination">
+              <li ng-if="$ctrl.startIndex >= 4"><a class="btn" ng-click="$ctrl.startIndex = $ctrl.startIndex - 4"><i class="fa fa-chevron-left"></i></a></li>
+              <li ng-if="$ctrl.startIndex < $ctrl.posts.length - 4"><a class="btn" ng-click="$ctrl.startIndex = $ctrl.startIndex + 4"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+      </div>
+      <div class="row" ng-if="$ctrl.selectedPost">
+          <h4 class="header">{{'COMMON_EDIT' | translate}}</h4>
+          <form name="formPost" class="form">
+              <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="fa fa-file-o"></i>
+                        </span>
+                        <input type="text" class="form-control" id="inputTitle" placeholder="{{'POSTSLIST_TITLE' | translate}}" ng-model="$ctrl.selectedPost.title">
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="fa fa-paragraph"></i>
+                        </span>
+                        <textarea class="form-control" rows="25" id="textContent" ng-model="$ctrl.selectedPost.content" placeholder="{{'POSTSLIST_CONTENT' | translate}}" ng-required="true"></textarea>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                    <div class="input-group">
+                      <input id="boxDraft" class="css-checkbox" type="checkbox" ng-model="$ctrl.selectedPost.isDraft" />
+                      <label for="boxDraft" class="css-label">{{'POSTSLIST_DRAFT' | translate}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group frm-buttons">
+                    <button type="submit" class="btn col-sm-3 pull-right" ng-click="$ctrl.save()" ng-disabled="formPost.$pristine || formPost.$invalid"><i class="fa fa-save"></i> {{'COMMON_SAVE' | translate}}</button>
+                </div>
+            </div>
+          </form>
+      </div>
+    </div>
+</section>

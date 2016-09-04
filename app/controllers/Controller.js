@@ -7,40 +7,40 @@ class Controller {
     }
 
     findAll(req, res, next) {
-        this.model.find({}, (err, users) => {
+        this.model.find({}, (err, objects) => {
             if (err)
                 next(err)
             else
-                res.json(users)
+                res.json(objects)
         })
     }
 
     findById(req, res, next) {
-        this.model.findById(req.params.id, (err, user) => {
+        this.model.findById(req.params.id, (err, object) => {
             if (err)
                 next(err)
             else
-                res.json(user)
+                res.json(object)
         })
     }
 
     create(req, res, next) {
-        this.model.create(req.body, (err, user) => {
+        this.model.create(req.body, (err, object) => {
             if (err)
                 next(err)
             else
-                res.json(user)
+                res.json(object)
         })
     }
 
     update(req, res, next) {
         this.model.update({
             _id: req.params.id
-        }, req.body, (err, user) => {
+        }, req.body, (err, object) => {
             if (err)
                 next(err)
             else
-                res.json(user)
+                res.json(object)
         })
     }
 

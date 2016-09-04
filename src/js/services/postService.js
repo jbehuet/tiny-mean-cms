@@ -7,7 +7,18 @@
         }
 
         getAll() {
-            return this.$http.get('/api/post')
+            return this.$http.get('/api/posts')
+        }
+
+        save(post) {
+            if (post._id)
+                return this.$http.put('/api/posts/' + post._id, post)
+            else
+                return this.$http.post('/api/posts', post)
+        }
+
+        delete(post) {
+            return this.$http.delete('/api/posts/' + post._id)
         }
 
     }])

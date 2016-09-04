@@ -21,7 +21,7 @@
 
                     UserService.save(this.selectedUser).then((res) => {
                         //TODO set _id to user in users
-                        toastr.success(`${res.data.firstname} ${res.data.lastname} saved`)
+                        toastr.success(`${this.selectedUser.firstname} ${this.selectedUser.lastname} saved`)
                     }).catch((err) => {
                         toastr.error(`${err.data}`)
                     })

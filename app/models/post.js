@@ -12,6 +12,10 @@ module.exports = mongoose.model('Post', new mongoose.Schema({
         required: true
     },
     tags: [String],
+    isDraft: {
+        type: Boolean,
+        default: true
+    },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
