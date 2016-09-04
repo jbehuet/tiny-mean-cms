@@ -12,4 +12,10 @@ module.exports = (app) => {
 
 	app.get('/post/:id', (req, res, next) => { return postCtrl.findById(req, res, next) })
 
+	app.post('/post', Auth.user.isAdministrator,  (req, res, next) => { return postCtrl.create(req, res, next) })
+
+	app.put('/post/:id', Auth.user.isAdministrator, (req, res, next) => { return postCtrl.update(req, res, next) })
+
+	app.delete('/post/:id', Auth.user.isAdministrator, (req, res, next) => { return postCtrl.delete(req, res, next) })
+
 }
