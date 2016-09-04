@@ -4,11 +4,12 @@
         templateUrl: 'js/components/blog/blog.html',
         controller: ['PostService', function(PostService) {
             angular.extend(this, {
-              $onInit() {
-                PostService.getAll().then((res) => {
-                  this.posts = res.data
-                })
-              }
+                $onInit() {
+                    PostService.getAll().then((res) => {
+                        debugger
+                        this.posts = res.data
+                    })
+                }
             })
         }]
     })
