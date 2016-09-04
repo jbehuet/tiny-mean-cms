@@ -10,6 +10,10 @@
             return this.$http.get('/api/posts')
         }
 
+        getPublished(){
+          return this.$http.get('/api/posts/published')
+        }
+
         save(post) {
             if (post._id)
                 return this.$http.put('/api/posts/' + post._id, post)

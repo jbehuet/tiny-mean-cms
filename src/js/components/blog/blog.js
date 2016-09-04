@@ -5,7 +5,7 @@
         controller: ['PostService', function(PostService) {
             angular.extend(this, {
                 $onInit() {
-                    PostService.getAll().then((res) => {
+                    PostService.getPublished().then((res) => {
                         this.posts = res.data
                     })
                 }
