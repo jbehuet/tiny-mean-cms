@@ -3,6 +3,7 @@
 \* -------------------------------- */
 'use strict'
 let PostController = require('../controllers/PostController')
+let Auth = require('../middlewares/authorization.js')
 
 module.exports = (app) => {
 
