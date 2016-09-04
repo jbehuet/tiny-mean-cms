@@ -1,5 +1,8 @@
 # TINY-MEAN-CMS
 
+[![Licence](https://img.shields.io/badge/licence-MIT-blue.svg?maxAge=2592000)](https://github.com/jbehuet/tiny-mean-cms/blob/master/LICENCE) [![Release](https://img.shields.io/github/release/jbehuet/tiny-mean-cms.svg?maxAge=2592000)](https://github.com/jbehuet/tiny-mean-cms/releases)
+[![GitHub forks](https://img.shields.io/github/forks/jbehuet/tiny-mean-cms.svg)](https://github.com/jbehuet/tiny-mean-cms/network) [![GitHub issues](https://img.shields.io/github/issues/jbehuet/tiny-mean-cms.svg)](https://github.com/jbehuet/tiny-mean-cms/issues)
+
 CMS Project with [MEAN stack](http://mean.io/#!/)
 
 ### Previews
