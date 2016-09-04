@@ -7,7 +7,7 @@ class Controller {
     }
 
     findAll(req, res, next) {
-        this.model.find({}, (err, objects) => {
+        this.model.find({}).sort({createdAt:"desc"}).exec((err, objects) => {
             if (err)
                 next(err)
             else

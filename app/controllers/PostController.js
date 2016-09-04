@@ -9,7 +9,7 @@ class PostController extends Controller {
     }
 
     findPublished(req, res, next){
-      POST.find({isDraft: false}, (err, objects) => {
+      POST.find({isDraft: false}).sort({createdAt:"desc"}).exec((err, objects) => {
           if (err)
               next(err)
           else
