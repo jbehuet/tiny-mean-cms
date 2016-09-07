@@ -1,6 +1,6 @@
 {
   "POSTSLIST_TITLE": "Liste des articles",
-  "POSTSLIST_DRAFT": "Brouillon",
-  "POSTSLIST_TITLE": "Titre",
-  "POSTSLIST_CONTENT": "Contenu"
+  "POSTS_DRAFT": "Brouillon",
+  "POSTS_TITLE": "Titre",
+  "POSTS_CONTENT": "Contenu"
 }
