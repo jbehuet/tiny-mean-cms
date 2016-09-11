@@ -9,7 +9,7 @@
     "install": "node install.js",
     "postinstall": "bower install && brunch build --production",
     "prestart": "brunch build --production",
-    "start": "node mean-starter-es6.js",
+    "start": "node tiny-mean-cms.js",
     "dev": "brunch watch --server"
   },
   "dependencies": {
