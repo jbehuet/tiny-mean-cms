@@ -3,6 +3,6 @@
         <h1>{{$ctrl.post.title}}</h1>
         <h6><em>{{'BLOG_DATE' | translate}} {{$ctrl.post.createdAt | date:'dd/MM/yyyy' }}</em></h6>
     </div>
-    {{$ctrl.post.content}}
+    <div ng-bind-html="$ctrl.post.content"></div>
     <hr />
 </section>

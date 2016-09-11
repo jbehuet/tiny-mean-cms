@@ -18,6 +18,9 @@ exports.config = {
                     'bower_components/angular-ui-router/release/angular-ui-router.js',
                     'bower_components/angular-md5/angular-md5.js',
                     'bower_components/angular-inline-text-editor/ite.js',
+                    'bower_components/textAngular/dist/textAngular-sanitize.js',
+                    'bower_components/textAngular/dist/textAngularSetup.js',
+                    'bower_components/textAngular/dist/textAngular.js',
                     'bower_components/angular-translate/angular-translate.js',
                     'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
                 ],
