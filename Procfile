@@ -1,1 +1,1 @@
-web: node mean-starter-es6
+web: node tiny-mean-cms

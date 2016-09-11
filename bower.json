@@ -1,5 +1,5 @@
 {
-  "name": "mean-starter-es6.git",
+  "name": "tiny-mean-cms",
   "dependencies": {
     "angular": "~1.5.8",
     "angular-ui-router": "~0.3.1",
