@@ -20,7 +20,11 @@
                         delete this.selectedUser.password
 
                     UserService.save(this.selectedUser).then((res) => {
-                        //TODO set _id to user in users
+                        if (angular.isUndefined(this.selectedUser._id))
+                            this.users[this.users.length - 1] = res.data
+
+                        this.selectedUser = this.users[this.users.length - 1]
+
                         toastr.success(`${this.selectedUser.firstname} ${this.selectedUser.lastname} saved`)
                     }).catch((err) => {
                         toastr.error(`${err.data}`)
@@ -29,10 +33,10 @@
                 },
                 delete(idx, user) {
                     this.users.splice(idx + this.startIndex, 1)
-                    this.startIndex = (this.startIndex !== 0 ? Math.trunc((this.users.length - 1) / 4) * 4 : 0 )
+                    this.startIndex = (this.startIndex !== 0 ? Math.trunc((this.users.length - 1) / 4) * 4 : 0)
                     if (angular.isDefined(user._id)) {
                         UserService.delete(user).then(() => {
-                            toastr.success(`${this.selectedUser.firstname} ${this.selectedUser.lastname} deleted`)
+                            toastr.success(`${user.firstname} ${user.lastname} deleted`)
                             this.selectedUser = null
                         }).catch((err) => {
                             toastr.error(`${err.data}`)
