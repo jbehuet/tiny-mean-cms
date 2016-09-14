@@ -3,19 +3,22 @@
 .cards {
     margin-top: 10px;
 }
-.card.col-xs-3 {
+.card.col-md-3, .card.col-lg-3{
     width: 24%;
-    margin: 0 1% 0 0;
 }
 .card.col-sm-4 {
     width: 32%;
-    margin: 0 1% 0 0;
+}
+.card.col-xs-12, .card.col-sm-12{
+    width: 98%;
+    margin: 1% 1% 0 1%;
 }
 .card {
     background: $white;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     min-height: 85px;
     border: 2px solid $white;
+    margin: 0 1% 0 0;
 }
 .card.hover:hover {
     background-color: $gray;
