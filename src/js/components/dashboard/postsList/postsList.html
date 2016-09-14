@@ -10,7 +10,7 @@
           </h2>
       </div>
       <div class="cards row">
-          <div class="card hover col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-repeat="post in $ctrl.posts | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedPost == post}" ng-click="$ctrl.selectedPost = post">
+          <div class="card hover col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-repeat="post in $ctrl.posts | limitTo:4:$ctrl.startIndex " ng-class="{'selected': $ctrl.selectedPost == post}" ng-click="$ctrl.edit(post)">
               <button class="btn danger col-sm-5 col-sm-offset-2" ng-click="$ctrl.delete($index, post)"> <i class="fa fa-trash"></i></button>
               <div class="row card-content">
                   <div class="col-xs-3">
@@ -31,7 +31,7 @@
       </div>
       <div class="row" ng-if="$ctrl.selectedPost">
           <h4 class="header">{{'COMMON_EDIT' | translate}}</h4>
-          <form name="formPost" class="form">
+          <form id="formPost" name="formPost" class="form">
               <div class="row">
                 <div class="col-md-12 form-group">
                     <div class="input-group">

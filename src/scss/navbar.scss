@@ -31,12 +31,14 @@ button.navbar-toggle:hover {
     background-color: $white !important;
 }
 
-button.navbar-default > .icon-bar, button.navbar-toggle:hover > .icon-bar{
-  background-color: $primary !important;
+button.navbar-default > .icon-bar,
+button.navbar-toggle:hover > .icon-bar {
+    background-color: $primary !important;
 }
-
-.navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: $white;
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: $white;
+    }
 }
 
 .navbar-default .navbar-toggle {

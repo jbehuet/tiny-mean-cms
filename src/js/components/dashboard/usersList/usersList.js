@@ -2,7 +2,7 @@
     'use strict'
     app.component("users", {
         templateUrl: 'js/components/dashboard/usersList/usersList.html',
-        controller: ['UserService', function(UserService) {
+        controller: ['UserService', '$timeout', '$location', '$anchorScroll', function(UserService, $timeout, $location, $anchorScroll) {
             angular.extend(this, {
                 $onInit() {
                     this.startIndex = 0
@@ -10,10 +10,21 @@
                         this.users = res.data
                     })
                 },
+                scrollTo(id){
+                  $timeout(function() {
+                      $location.hash()
+                      $anchorScroll(id)
+                  }, 100)
+                },
+                edit(user){
+                  this.selectedUser = user
+                  this.scrollTo('formUser')
+                },
                 add() {
                     this.startIndex = Math.trunc(this.users.length / 4) * 4
                     this.selectedUser = {}
                     this.users.push(this.selectedUser)
+                    this.scrollTo('formUser')
                 },
                 save() {
                     if (angular.isUndefined(this.selectedUser.password))
