@@ -51,6 +51,7 @@
     'InlineTextEditor',
     'textAngular',
     'pascalprecht.translate',
+    'seo',
     'app.views',
     'app.config',
     'app.services',

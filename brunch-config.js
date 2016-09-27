@@ -22,7 +22,8 @@ exports.config = {
                     'bower_components/textAngular/dist/textAngularSetup.js',
                     'bower_components/textAngular/dist/textAngular.js',
                     'bower_components/angular-translate/angular-translate.js',
-                    'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
+                    'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+                    'bower_components/angular-seo/angular-seo.js'
                 ],
                 'js/app.min.js': /^src\/js/
             },

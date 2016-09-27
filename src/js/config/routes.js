@@ -1,6 +1,7 @@
 ((app) => {
     'use strict'
-    app.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
+    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', ($stateProvider, $urlRouterProvider, $locationProvider) => {
+        $locationProvider.hashPrefix('!')
         $urlRouterProvider.otherwise('/')
         $stateProvider.state('app', {
             url: '',

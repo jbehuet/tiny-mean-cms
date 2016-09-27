@@ -29,6 +29,7 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1",
+    "node-phantom": "^0.2.5",
     "sass-brunch": "^2.6.3",
     "uglify-js-brunch": "^2.0.1"
   }

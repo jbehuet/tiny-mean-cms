@@ -4,7 +4,6 @@
 'use strict'
 let express = require('express')
 let fs = require('fs')
-let path = require('path')
 
 module.exports = (app) => {
     const router = express.Router()
@@ -18,10 +17,6 @@ module.exports = (app) => {
             })
         }
 
-        // application --------------------------------------------------------
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, '../../public', 'index.html'))
-        })
     })
 
     return router

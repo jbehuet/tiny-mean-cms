@@ -10,6 +10,10 @@ let api = require('./app/routes')
 let db = require('./config/database')
 let server = http.Server(app)
 
+
+let seo = require('./app/middlewares/seo')
+app.use(seo)
+
 // Express =====================================================================
 app.use(express.static(__dirname + '/public'))
 app.use(morgan('dev'))
