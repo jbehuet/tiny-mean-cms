@@ -6,4 +6,4 @@
             angular.extend(this,{})
         }]
     })
-})(angular.module('app.login'))
+})(angular.module('app.about'))
