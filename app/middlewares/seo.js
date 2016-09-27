@@ -3,7 +3,7 @@
 let phantom = require('phantom')
 
 module.exports = (req, res, next) => {
-
+  
     let phInstance, sitepage
     if (!req.query._escaped_fragment_) {
         next()
@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
             })
             .then(page => {
                 sitepage = page;
-                return page.open('http://localhost:' + (process.env.port || 8000) + '/#!' + req.query._escaped_fragment_);
+                return page.open(req.protocol + "://" + req.get('host') + '/#!' + req.query._escaped_fragment_);
             })
             .then(status => {
                 console.log(status);
