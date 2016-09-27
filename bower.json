@@ -13,7 +13,6 @@
     "angular-inline-text-editor": "https://github.com/jbehuet/angular-inline-text-editor.git#~0.3.19",
     "angular-translate": "~2.11.1",
     "angular-translate-loader-static-files": "~2.11.1",
-    "textAngular": "~1.5.9",
-    "angular-seo": "https://github.com/steeve/angular-seo.git#d6b50c5b48"
+    "textAngular": "~1.5.9"
   }
 }
