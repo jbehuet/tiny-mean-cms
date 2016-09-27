@@ -30,6 +30,7 @@
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1",
     "node-phantom": "^0.2.5",
+    "phantom": "^2.1.21",
     "sass-brunch": "^2.6.3",
     "uglify-js-brunch": "^2.0.1"
   }
