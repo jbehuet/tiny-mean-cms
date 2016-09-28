@@ -23,6 +23,7 @@ CMS Project with [MEAN stack](http://mean.io/#!/)
 ```bash
 git clone https://github.com/jbehuet/tiny-mean-cms.git   
 cd tiny-mean-cms
+bower i
 npm i
 ```
 
