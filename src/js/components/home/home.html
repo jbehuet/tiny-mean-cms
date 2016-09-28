@@ -23,8 +23,5 @@
             <img src="img/showcase.png" class="img-responsive" alt="">
           </div>
         </div>
-        <button class="btn danger btn-floating cancel top" ng-if="$ctrl.editMode" ng-click="$ctrl.cancel()"><i class="fa fa-close"></i></button>
-        <button class="btn success btn-floating top" ng-if="$ctrl.editMode" ng-click="$ctrl.save()"><i class="fa fa-check"></i></button>
-        <button class="btn warning btn-floating top" ng-if="(!$ctrl.editMode && $ctrl.user && $ctrl.user.isAdmin)" ng-click="$ctrl.editMode = true"><i class="fa fa-pencil"></i></button>
     </div>
 </section>

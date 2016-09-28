@@ -55,12 +55,6 @@
     'app.config',
     'app.services',
     'app.common',
-    'app.login',
     'app.home',
-    'app.blog',
-    'app.about',
-    'app.dashboard',
-    'app.dashboard.summary',
-    'app.dashboard.users',
-    'app.dashboard.posts'
+    'app.about'
 ]))
