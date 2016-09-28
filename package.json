@@ -2,7 +2,7 @@
   "name": "tiny-mean-cms",
   "version": "1.0.0",
   "description": "",
-  "author": "Jerome BEHUET",
+  "author": "",
   "license": "MIT",
   "main": "server.js",
   "scripts": {

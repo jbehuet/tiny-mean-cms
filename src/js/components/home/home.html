@@ -1,23 +1,23 @@
 <section>
     <div class="intro">
         <div class="container text-center">
-            <h1 class="intro-title text" inline-text-editor edit-mode="{{$ctrl.editMode}}" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable inline-text-editor' : $ctrl.editMode}" ng-model="$ctrl.page.content.title">
-              {{$ctrl.page.content.title}}
+            <h1 class="intro-title">
+              Title
             </h1>
-            <p class="subtitle text" inline-text-editor edit-mode="{{$ctrl.editMode}}" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.subtitle">{{$ctrl.page.content.subtitle}}</p>
+            <p class="subtitle text" >subtitle</p>
         </div>
     </div>
     <div class="container">
         <div class="row concepts">
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept1" />
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept2" />
-            <card class="col-sm-4" edit-mode="$ctrl.editMode" ng-model="$ctrl.page.content.concept3" />
+            <card class="col-sm-4" />
+            <card class="col-sm-4" />
+            <card class="col-sm-4" />
         </div>
         <hr />
         <div class="row">
           <div class="col-sm-6">
-              <h3 inline-text-editor edit-mode="{{$ctrl.editMode}}" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.section1.title">{{$ctrl.page.section1.title}}</h3>
-              <p inline-text-editor edit-mode="{{$ctrl.editMode}}" ng-attr-contenteditable="{{$ctrl.editMode || undefined}}" ng-class="{'editable' : $ctrl.editMode}" ng-model="$ctrl.page.content.section1.content">{{$ctrl.page.section1.content}}</p>
+              <h3>Title</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, aspernatur! Quae consequuntur necessitatibus, consequatur nobis quos unde nemo commodi, reprehenderit ullam porro quod a, accusamus saepe. Voluptatem saepe inventore, doloremque.</p>
           </div>
           <div class="col-sm-6">
             <img src="img/showcase.png" class="img-responsive" alt="">
