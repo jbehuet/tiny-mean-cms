@@ -5,7 +5,10 @@
     border: none;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-
+.navbar-nav{
+  background-color: $primary;
+  margin-top: -0px;
+}
 .navbar-nav > li > a {
     color: $white !important;
     line-height: 30px;
